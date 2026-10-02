@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Octavia the Great | One Sheet</title>
+<title>IDU House x Octavia the Great | Join the Cohort</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Potta+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
@@ -12,56 +12,89 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: #05060d; }
   body { font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif; color: #e8e6ff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .sheet { width: 8.5in; height: 11in; margin: 0 auto; position: relative; overflow: hidden; background: #05060d; }
-  .banner { position: relative; height: 4.3in; overflow: hidden; }
-  .banner img { position: absolute; left: 0; top: -0.6in; width: 8.5in; height: auto; filter: contrast(1.05) saturate(0.95); }
+  .sheet { width: 8.5in; min-height: 11in; margin: 0 auto; position: relative; background: #05060d; overflow: hidden; }
+  .banner { position: relative; height: 3.5in; overflow: hidden; }
+  .banner img { position: absolute; left: 0; top: -0.7in; width: 8.5in; height: auto; filter: contrast(1.05) saturate(0.95); }
   .banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,6,13,0.55) 0%, rgba(5,6,13,0) 30%, rgba(5,6,13,0.55) 65%, #05060d 100%); }
-  .bolt { position: absolute; inset: 0; z-index: 2; opacity: 0.55; }
-  .top { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; top: 0.35in; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.28em; color: #9aa0d0; text-transform: uppercase; font-weight: 700; }
-  .title { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; bottom: 0.3in; }
-  .kana { font-family: "Potta One", "Hiragino Mincho ProN", serif; color: #ff5d73; font-size: 17px; text-shadow: 0 0 10px rgba(255,93,115,0.6); }
-  h1 { font-family: "Dela Gothic One", "Hiragino Kaku Gothic ProN", sans-serif; font-weight: 400; font-size: 58px; line-height: 1; color: #fff; letter-spacing: -0.01em; text-shadow: 0 0 22px rgba(127,216,255,0.55), 0 2px 0 #05060d; margin: 4px 0 8px; }
-  .tag { font-size: 15px; letter-spacing: 0.18em; color: #7fd8ff; text-transform: uppercase; font-weight: 700; }
-  .slash { height: 2px; background: #ff5d73; width: 1.6in; margin-top: 10px; }
-  .body { display: grid; grid-template-columns: 1.25fr 1fr; gap: 0.38in; padding: 0.1in 0.5in 0; }
+  .bolt { position: absolute; inset: 0; z-index: 2; opacity: 0.55; width: 100%; height: 100%; }
+  .top { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; top: 0.32in; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.28em; color: #9aa0d0; text-transform: uppercase; font-weight: 700; }
+  .title { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; bottom: 0.22in; }
+  .kana { font-family: "Potta One", "Hiragino Mincho ProN", serif; color: #ff5d73; font-size: 16px; text-shadow: 0 0 10px rgba(255,93,115,0.6); }
+  h1 { font-family: "Dela Gothic One", "Hiragino Kaku Gothic ProN", sans-serif; font-weight: 400; font-size: 54px; line-height: 1; color: #fff; text-shadow: 0 0 22px rgba(127,216,255,0.55), 0 2px 0 #05060d; margin: 4px 0 8px; }
+  .tag { font-size: 14px; letter-spacing: 0.18em; color: #7fd8ff; text-transform: uppercase; font-weight: 700; }
+  .slash { height: 2px; background: #ff5d73; width: 1.6in; margin-top: 9px; }
+  .body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.36in; padding: 0.08in 0.5in 0; }
   h2 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 12px; letter-spacing: 0.22em; color: #ffe27a; text-transform: uppercase; margin-bottom: 8px; }
-  p { font-size: 11.5px; line-height: 1.6; color: #cfd2ff; }
-  .block { margin-bottom: 0.2in; }
-  .facts { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 11px; }
-  .facts dt { color: #7fd8ff; font-weight: 700; }
-  .facts dd { color: #e8e6ff; }
-  .ep { border: 1px solid #ffe27a; border-radius: 6px; padding: 12px 14px; background: rgba(255,226,122,0.06); }
-  .ep .big { font-family: "Dela Gothic One", sans-serif; font-size: 26px; color: #ffe27a; line-height: 1; margin: 4px 0 6px; }
-  ol.tracks { list-style: none; counter-reset: t; columns: 1; }
-  ol.tracks li { counter-increment: t; font-size: 11px; padding: 3.5px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #e8e6ff; display: flex; gap: 8px; }
-  ol.tracks li::before { content: counter(t, decimal-leading-zero); color: #7fd8ff; font-weight: 700; min-width: 18px; }
-  .game { border: 1px solid #7fd8ff; border-radius: 6px; padding: 12px 14px; background: rgba(127,216,255,0.06); }
-  .game b { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #fff; font-size: 16px; display: block; margin-bottom: 4px; }
-  .links { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.62in; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 12px; }
-  .links div { font-size: 9.5px; color: #9aa0d0; line-height: 1.5; }
-  .links b { display: block; color: #7fd8ff; letter-spacing: 0.16em; font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
-  .links span { color: #e8e6ff; word-break: break-all; }
-  footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
+  p { font-size: 11.5px; line-height: 1.55; color: #cfd2ff; }
+  .block { margin-bottom: 0.17in; }
+  .pillars { list-style: none; display: grid; gap: 9px; }
+  .pillars li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; font-size: 11.2px; line-height: 1.5; color: #cfd2ff; }
+  .pillars .n { font-family: "Dela Gothic One", sans-serif; color: #7fd8ff; font-size: 18px; line-height: 1; }
+  .pillars b { color: #fff; }
+  .steps { list-style: none; border-left: 2px solid #ff5d73; padding-left: 12px; display: grid; gap: 9px; }
+  .steps li { font-size: 11px; line-height: 1.45; color: #cfd2ff; }
+  .steps b { display: block; color: #fff; font-size: 11.5px; }
+  .steps em { font-style: normal; color: #7fd8ff; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+  ul.agenda { list-style: none; display: grid; gap: 5px; }
+  ul.agenda li { font-size: 11px; color: #e8e6ff; padding-left: 16px; position: relative; }
+  ul.agenda li::before { content: ""; position: absolute; left: 0; top: 5px; width: 7px; height: 7px; background: #ffe27a; transform: rotate(45deg); }
+  .game { border: 1px solid #7fd8ff; border-radius: 6px; padding: 10px 12px; background: rgba(127,216,255,0.06); margin-top: 0.14in; }
+  .game b { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #fff; font-size: 14px; display: block; margin-bottom: 3px; }
+  .game p { font-size: 10.8px; }
+  .cta { margin: 0.2in 0.5in 0; border: 1px solid #ffe27a; border-radius: 8px; background: rgba(255,226,122,0.07); padding: 14px 18px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+  .cta h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #ffe27a; font-size: 18px; margin-bottom: 4px; }
+  .cta p { font-size: 11px; }
+  .windows { display: grid; gap: 4px; text-align: right; font-size: 11px; color: #fff; font-weight: 700; }
+  .windows span { color: #7fd8ff; letter-spacing: 0.14em; font-size: 9.5px; text-transform: uppercase; display: block; }
+  footer.pg { display: flex; justify-content: space-between; margin: 0.18in 0.5in 0.2in; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .schedule { width: 8.5in; margin: 0 auto; padding: 0.5in; background: #05060d; border-top: 1px solid rgba(255,255,255,0.1); }
+  .schedule h2 { font-size: 14px; }
+  .schedule h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 30px; color: #fff; margin: 4px 0 8px; }
+  .lead { font-size: 13px; color: #cfd2ff; max-width: 6in; }
+  .note { font-size: 12px; color: #9aa0d0; margin-top: 8px; }
+  .days { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .day { background: #141414; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; display: grid; gap: 8px; }
+  .day h4 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 13px; }
+  .day small { color: #7fd8ff; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-top: -4px; }
+  .slot { background: transparent; color: #ffe27a; border: 1px solid #ffe27a; border-radius: 4px; padding: 9px 10px; font-size: 13px; font-family: inherit; font-weight: 700; cursor: pointer; }
+  .slot.on { background: #ffe27a; color: #05060d; }
+  form { margin-top: 24px; display: grid; gap: 14px; max-width: 600px; }
+  label { font-size: 12px; color: #9aa0d0; display: grid; gap: 5px; }
+  input, textarea { background: #141414; border: 1px solid rgba(255,255,255,0.1); color: #e8e6ff; padding: 12px; border-radius: 4px; font: inherit; font-size: 14px; }
+  textarea { min-height: 80px; resize: vertical; }
+  .checks { display: grid; gap: 8px; }
+  .checks label { display: flex; align-items: center; gap: 10px; color: #e8e6ff; font-size: 13px; }
+  .checks input { width: 17px; height: 17px; accent-color: #ffe27a; padding: 0; }
+  .picked { padding: 12px 14px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 4px; color: #9aa0d0; font-size: 13px; }
+  .picked.set { color: #fff; border: 1px solid #ffe27a; }
+  button.go { background: #ffe27a; color: #05060d; border: 0; padding: 15px 26px; border-radius: 4px; font-weight: 900; font-size: 14px; font-family: inherit; cursor: pointer; justify-self: start; }
+  .done { margin-top: 24px; max-width: 600px; padding: 24px; border: 1px solid #ffe27a; background: rgba(255,226,122,0.07); border-radius: 8px; display: grid; gap: 10px; }
+  .done h3 { font-size: 22px; margin: 0; }
+  .done a.ics { color: #05060d; background: #ffe27a; padding: 12px 18px; border-radius: 4px; font-weight: 900; font-size: 13px; text-decoration: none; justify-self: start; }
+
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
-  @media print { body { padding: 0; } }
+  @media print { body { padding: 0; } .schedule { display: none; } }
+  @media (max-width: 8.6in) { .sheet, .schedule { width: 100%; } .body { grid-template-columns: 1fr; } .cta { grid-template-columns: 1fr; } .windows { text-align: left; } .banner img { width: 100%; } }
 </style>
 </head>
 <body>
+
 <div class="sheet">
   <div class="banner">
     <img src="assets/octavia-hero.jpg" alt="Octavia the Great in a black kimono and conical hat, in a horse stance on wet stone">
-    <svg class="bolt" viewBox="0 0 816 413" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="bolt" viewBox="0 0 816 336" preserveAspectRatio="none" aria-hidden="true">
       <g fill="none" stroke="#7fd8ff" stroke-linecap="round" stroke-linejoin="round">
-        <polyline stroke-width="2.2" points="690,0 672,54 690,70 658,132 676,150 640,214"/>
-        <polyline stroke-width="1.2" points="676,150 706,180 700,214"/>
-        <polyline stroke-width="1.6" points="120,0 136,40 118,58 142,104"/>
+        <polyline stroke-width="2.2" points="690,0 672,48 690,62 658,116 676,132 640,190"/>
+        <polyline stroke-width="1.2" points="676,132 706,160 700,190"/>
+        <polyline stroke-width="1.6" points="120,0 136,36 118,52 142,92"/>
       </g>
     </svg>
-    <div class="top"><span>Artist One Sheet</span><span>Prepared by IDU House</span></div>
+    <div class="top"><span>Invitation to the cohort</span><span>Prepared for Octavia</span></div>
     <div class="title">
       <div class="kana">オクタヴィア・ザ・グレート</div>
-      <h1>OCTAVIA<br>THE GREAT</h1>
-      <div class="tag">Authenticity is rare</div>
+      <h1>LET'S BUILD<br>THE ALBUM</h1>
+      <div class="tag">IDU House &times; Octavia the Great</div>
       <div class="slash"></div>
     </div>
   </div>
@@ -69,60 +102,202 @@
   <div class="body">
     <div>
       <div class="block">
-        <h2>The artist</h2>
-        <p>Octavia the Great is an independent artist from Virginia's Hampton Roads who puts her music straight into her fans' hands. Her music is free for an email, her next EP is funded by the people who want to hear it first, and her whole world is built on one idea: authenticity is rare.</p>
-        <p style="margin-top:8px">By day she runs AIR Waves Entertainment, a social media management and lead generation company for small businesses across Hampton Roads, so she knows how to build an audience as well as a catalog.</p>
+        <h2>Why this works</h2>
+        <p>Your bars are already moving on Threads and TikTok, and people are feeling them. That is the hardest part. IDU House is the engine behind artists who are already in motion. We turn the bars into momentum on the platforms that are working for you, and the momentum into an album people show up for.</p>
       </div>
       <div class="block">
-        <h2>At a glance</h2>
-        <dl class="facts">
-          <dt>Based</dt><dd>Hampton Roads, Virginia</dd>
-          <dt>Model</dt><dd>Direct to fan. Free downloads for an email, optional number for new drops</dd>
-          <dt>Catalog</dt><dd>12 tracks available now</dd>
-          <dt>Next</dt><dd>New EP, funded by fans with an early listen as the reward</dd>
-          <dt>Company</dt><dd>AIR Waves Entertainment INC</dd>
-        </dl>
-      </div>
-      <div class="game">
-        <b>Storm Bars</b>
-        <p>A playable rap battle rhythm fighter built around her world. Hit the bars on the beat, knock out the voices of doubt. Prototype, play it on your phone at games.dad-rap.com/storm-bars</p>
+        <h2>How we work together</h2>
+        <ul class="pillars">
+          <li><span class="n">1</span><span><b>Amplify the bars.</b> A simple posting system for Threads and TikTok. We find which bars hit hardest, cut them into clips, quotes and duets, line up remixes and collabs like the one we already started, and send every view back to your email list and downloads.</span></li>
+          <li><span class="n">2</span><span><b>Build the album.</b> Production help when you need it: mixing, mastering and production. A release plan that works backward from your album goal.</span></li>
+          <li><span class="n">3</span><span><b>Get it heard.</b> Subgenre first playlist and curator pitching, timed for release day, with a one sheet that tells your story.</span></li>
+          <li><span class="n">4</span><span><b>Join the house.</b> A cohort of artists, creators and partners who share ideas, opportunities and momentum, with founders Aaron and Amadin running the operations behind it.</span></li>
+        </ul>
       </div>
     </div>
 
     <div>
       <div class="block">
-        <h2>Hear it now</h2>
-        <ol class="tracks">
-          <li>No Bra</li>
-          <li>Bad</li>
-          <li>Vision in the Night</li>
-          <li>Cain and Abel</li>
-          <li>The Confidence Chant</li>
-          <li>The Confidence Chant (alarm sound)</li>
-          <li>Shook Ones Freestyle</li>
-          <li>One in a Million</li>
-          <li>The Spell of the East</li>
-          <li>Erbody Mad</li>
-          <li>Bow Bow Bow</li>
-          <li>Everything Is Possible for Me</li>
-        </ol>
+        <h2>The first 90 days</h2>
+        <ul class="steps">
+          <li><em>Week 1</em><b>Lock it in</b>Set how you join the cohort and define the album goal.</li>
+          <li><em>Days 8 to 30</em><b>Momentum sprint</b>Posting system live on Threads and TikTok. Weekly check on what is working.</li>
+          <li><em>Days 31 to 60</em><b>Album build</b>Production, mixing and mastering. Fan funding push for studio costs.</li>
+          <li><em>Days 61 to 90</em><b>Release run</b>Pitching, placements and rollout, with fan game unlocks tied to the drop.</li>
+        </ul>
       </div>
-      <div class="ep">
-        <h2 style="margin-bottom:2px">The next EP</h2>
-        <div class="big">$1,382</div>
-        <p>Raised for studio time, mixing and mastering. Not a label and not an advance, just what it costs. Supporters hear the EP before anyone else.</p>
+      <div class="block">
+        <h2>What we decide on the call</h2>
+        <ul class="agenda">
+          <li>How you join the cohort</li>
+          <li>Your album goal and what it takes to hit it</li>
+          <li>Which bars and platforms we push first</li>
+          <li>How Aaron and Amadin can support AIR Waves</li>
+          <li>Who does what in the first 30 days</li>
+        </ul>
+      </div>
+      <div class="game">
+        <b>Already built for you</b>
+        <p>Storm Bars, a playable rap battle game in your world. Keeps fans inside your music after they find you. Play it at games.dad-rap.com/storm-bars</p>
       </div>
     </div>
   </div>
 
-  <div class="links">
-    <div><b>Music</b><span>airwavesent.com/octaviathegreat</span></div>
-    <div><b>Instagram</b><span>@octaviathegreat888</span></div>
-    <div><b>TikTok</b><span>@octaviathegreat888</span></div>
-    <div><b>YouTube</b><span>@octaviathegreat888</span></div>
-    <div><b>Facebook</b><span>facebook.com/onlythegreats1</span></div>
+  <div class="cta">
+    <div>
+      <h3>Book our next meeting</h3>
+      <p>One call to lock in exactly how you join the cohort and how we help you reach your album goal. Pick a time on the web version of this page.</p>
+    </div>
+    <div class="windows">
+      <div><span>Sundays</span>3 to 5 PM ET</div>
+      <div><span>IDU House office hours</span>Tue to Thu, 9 to 10 PM ET</div>
+    </div>
   </div>
-  <footer><span>Octavia the Great</span><span>Prepared by IDU House &nbsp;·&nbsp; iduhouse.com</span></footer>
+  <footer class="pg"><span>IDU House &nbsp;·&nbsp; Independent music and creative company</span><span>iduhouse.com</span></footer>
 </div>
+
+<section class="schedule" id="book">
+  <h2>Book our next meeting</h2>
+  <h3>Pick a time.</h3>
+  <p class="lead">Sundays 3 to 5 PM Eastern, or IDU House office hours Tuesday through Thursday, 9 to 10 PM Eastern. Meetings run 60 minutes.</p>
+  <p class="note" id="tzNote"></p>
+  <div id="days" class="days"></div>
+  <p class="note" id="noSlots" style="display:none">No open times right now. Use the box below to suggest one.</p>
+
+  <form id="callForm">
+    <div id="picked" class="picked">Select a time above to continue.</div>
+    <label>Your name<input name="name" required placeholder="Octavia"></label>
+    <label>Email<input name="email" type="email" required placeholder="you@example.com"></label>
+    <div class="checks">
+      <label><input type="checkbox" name="pt" value="Joining the IDU House cohort" checked> Joining the IDU House cohort</label>
+      <label><input type="checkbox" name="pt" value="Album goal and release plan" checked> Album goal and release plan</label>
+      <label><input type="checkbox" name="pt" value="Threads and TikTok amplification" checked> Threads and TikTok amplification</label>
+      <label><input type="checkbox" name="pt" value="Production, mixing and mastering"> Production, mixing and mastering</label>
+      <label><input type="checkbox" name="pt" value="AIR Waves operations support"> AIR Waves operations support</label>
+      <label><input type="checkbox" name="pt" value="Storm Bars fan game"> Storm Bars fan game</label>
+    </div>
+    <label>Anything you want us to know before the call? Or suggest another time (include your time zone)<textarea name="times" placeholder="Optional"></textarea></label>
+    <button class="go" type="submit">Confirm request</button>
+  </form>
+  <div id="done" class="done" style="display:none"></div>
+</section>
+
+<script>
+  const CONFIG = {
+    endpoint: '',
+    fallbackEmail: 'hello@iduhouse.com',
+    weeks: 4,
+    minLeadHours: 12,
+    meetingMinutes: 60,
+    stepMinutes: 30,
+    windows: [
+      { days: [0], start: '15:00', end: '17:00', label: 'Sunday window' },
+      { days: [2, 3, 4], start: '21:00', end: '22:00', label: 'IDU House office hours' }
+    ]
+  };
+  const TZ = 'America/New_York';
+  let selected = null, busy = [];
+
+  function tzOffsetMs(date) {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    }).formatToParts(date).map(x => [x.type, x.value]));
+    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second) - Math.floor(date.getTime() / 1000) * 1000;
+  }
+  function nyToDate(y, m, d, hh, mm) {
+    const guess = Date.UTC(y, m - 1, d, hh, mm);
+    const first = guess - tzOffsetMs(new Date(guess));
+    return new Date(guess - tzOffsetMs(new Date(first)));
+  }
+  const fmtDay = new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'long', month: 'short', day: 'numeric' });
+  const fmtET = new Intl.DateTimeFormat('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
+  const fmtLocal = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+  const fmtFull = new Intl.DateTimeFormat('en-US', { timeZone: TZ, weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+  const toMin = s => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+
+  function isBusy(start) {
+    const end = new Date(start.getTime() + CONFIG.meetingMinutes * 60000);
+    return busy.some(b => start < new Date(b.end) && end > new Date(b.start));
+  }
+  function buildDays() {
+    const now = new Date();
+    const nowNY = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: TZ, year: 'numeric', month: '2-digit', day: '2-digit' })
+      .formatToParts(now).map(x => [x.type, x.value]));
+    const out = [];
+    for (let i = 0; i < CONFIG.weeks * 7; i++) {
+      const civil = new Date(Date.UTC(+nowNY.year, +nowNY.month - 1, +nowNY.day + i));
+      const w = CONFIG.windows.find(x => x.days.includes(civil.getUTCDay()));
+      if (!w) continue;
+      const slots = [];
+      for (let m = toMin(w.start); m + CONFIG.meetingMinutes <= toMin(w.end); m += CONFIG.stepMinutes) {
+        const s = nyToDate(civil.getUTCFullYear(), civil.getUTCMonth() + 1, civil.getUTCDate(), Math.floor(m / 60), m % 60);
+        if (s - now > CONFIG.minLeadHours * 3600000 && !isBusy(s)) slots.push(s);
+      }
+      if (slots.length) out.push({ label: fmtDay.format(slots[0]), tag: w.label, slots });
+    }
+    return out;
+  }
+  function render() {
+    const wrap = document.getElementById('days');
+    wrap.innerHTML = '';
+    const days = buildDays();
+    document.getElementById('noSlots').style.display = days.length ? 'none' : 'block';
+    const localTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById('tzNote').textContent = localTz === TZ ? 'All times are Eastern Time.' : 'Times shown in Eastern Time, with your local time in parentheses (' + localTz + ').';
+    days.forEach(d => {
+      const card = document.createElement('div'); card.className = 'day';
+      card.innerHTML = '<h4>' + d.label + '</h4><small>' + d.tag + '</small>';
+      d.slots.forEach(s => {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'slot';
+        b.textContent = fmtET.format(s) + ' ET' + (localTz === TZ ? '' : ' (' + fmtLocal.format(s) + ')');
+        b.onclick = () => {
+          selected = s;
+          document.querySelectorAll('.slot').forEach(x => x.classList.remove('on')); b.classList.add('on');
+          const pk = document.getElementById('picked'); pk.textContent = 'Selected: ' + fmtFull.format(s); pk.classList.add('set');
+        };
+        card.appendChild(b);
+      });
+      wrap.appendChild(card);
+    });
+  }
+  function icsFor(start, name) {
+    const end = new Date(start.getTime() + CONFIG.meetingMinutes * 60000);
+    const z = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//IDU House//Cohort Call//EN', 'BEGIN:VEVENT',
+      'UID:' + start.getTime() + '@iduhouse.com', 'DTSTAMP:' + z(new Date()), 'DTSTART:' + z(start), 'DTEND:' + z(end),
+      'SUMMARY:IDU House x Octavia the Great: cohort and album planning', 'DESCRIPTION:Requested by ' + name + '. Pending confirmation.',
+      'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  }
+  document.getElementById('callForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const f = new FormData(this);
+    if (!selected && !(f.get('times') || '').trim()) {
+      const pk = document.getElementById('picked'); pk.textContent = 'Please select a time above or suggest one below.'; pk.classList.add('set'); return;
+    }
+    const slotText = selected ? fmtFull.format(selected) : 'No slot selected';
+    const points = f.getAll('pt').map((p, i) => (i + 1) + '. ' + p).join('\n');
+    const payload = { name: f.get('name'), email: f.get('email'), slot: slotText, slot_iso: selected ? selected.toISOString() : '', topics: points,
+      notes: f.get('times') || '', _subject: 'Cohort call request: ' + f.get('name') + ' (' + slotText + ')' };
+    let sent = false;
+    if (CONFIG.endpoint) {
+      try { const r = await fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); sent = r.ok; } catch (err) { sent = false; }
+    }
+    if (!sent) {
+      const body = 'Hi IDU House team,\n\nCohort and album planning call request.\n\nName: ' + payload.name + '\nEmail: ' + payload.email +
+        '\nRequested time: ' + slotText + '\n\nTopics:\n' + points + '\n\nNotes:\n' + (payload.notes || 'None') + '\n';
+      window.location.href = 'mailto:' + CONFIG.fallbackEmail + '?subject=' + encodeURIComponent(payload._subject) + '&body=' + encodeURIComponent(body);
+    }
+    this.style.display = 'none';
+    const done = document.getElementById('done'); done.style.display = 'grid';
+    done.innerHTML = '<h3>Request received.</h3><p class="lead">' + slotText + '</p><p class="note">We will confirm by reply.</p>';
+    if (selected) {
+      const a = document.createElement('a'); a.className = 'ics'; a.textContent = 'Add to my calendar';
+      a.href = URL.createObjectURL(new Blob([icsFor(selected, payload.name)], { type: 'text/calendar' })); a.download = 'idu-house-cohort-call.ics';
+      done.appendChild(a);
+    }
+  });
+  fetch('busy.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : { busy: [] }).then(j => { busy = j.busy || []; }).catch(() => {}).finally(render);
+</script>
 </body>
 </html>
