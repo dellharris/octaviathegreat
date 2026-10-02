@@ -29,6 +29,7 @@ By day she runs AIR Waves Entertainment, a social media management and lead gene
 - A phone number is optional and used only for new drops.
 - Downloads land in the fan's inbox within about a minute, with a one tap save all option on the page.
 - Fan funded releases. The next EP has a $1,382 goal for studio time, mixing and mastering. Supporters hear the EP before anyone else. Checkout runs through Stripe, with card and Apple Pay.
+- IDU House's goal for the EP: help strategize and spend money effectively to amplify the project, putting budget behind the content already earning natural engagement.
 
 ## Catalog (12 tracks, free download)
 
