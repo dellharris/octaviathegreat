@@ -183,6 +183,8 @@
     endpoint: '',
     fallbackEmail: 'hello@iduhouse.com',
     weeks: 4,
+    lastDate: '2026-10-09',
+    blockedDates: ['2026-10-06'],
     minLeadHours: 12,
     meetingMinutes: 60,
     stepMinutes: 30,
@@ -223,6 +225,8 @@
     const out = [];
     for (let i = 0; i < CONFIG.weeks * 7; i++) {
       const civil = new Date(Date.UTC(+nowNY.year, +nowNY.month - 1, +nowNY.day + i));
+      const iso = civil.toISOString().slice(0, 10);
+      if (iso > CONFIG.lastDate || CONFIG.blockedDates.includes(iso)) continue;
       const w = CONFIG.windows.find(x => x.days.includes(civil.getUTCDay()));
       if (!w) continue;
       const slots = [];
