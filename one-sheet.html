@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IDU House x Octavia the Great | Join the Cohort</title>
+<title>Octavia the Great | One Sheet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Potta+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
@@ -12,42 +12,36 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: #05060d; }
   body { font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif; color: #e8e6ff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .sheet { width: 8.5in; min-height: 11in; margin: 0 auto; position: relative; background: #05060d; overflow: hidden; }
-  .banner { position: relative; height: 3.5in; overflow: hidden; }
-  .banner img { position: absolute; left: 0; top: -0.7in; width: 8.5in; height: auto; filter: contrast(1.05) saturate(0.95); }
+  .sheet { width: 8.5in; height: 11in; margin: 0 auto; position: relative; overflow: hidden; background: #05060d; }
+  .banner { position: relative; height: 4.3in; overflow: hidden; }
+  .banner img { position: absolute; left: 0; top: -0.6in; width: 8.5in; height: auto; filter: contrast(1.05) saturate(0.95); }
   .banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,6,13,0.55) 0%, rgba(5,6,13,0) 30%, rgba(5,6,13,0.55) 65%, #05060d 100%); }
-  .bolt { position: absolute; inset: 0; z-index: 2; opacity: 0.55; width: 100%; height: 100%; }
-  .top { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; top: 0.32in; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.28em; color: #9aa0d0; text-transform: uppercase; font-weight: 700; }
-  .title { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; bottom: 0.22in; }
-  .kana { font-family: "Potta One", "Hiragino Mincho ProN", serif; color: #ff5d73; font-size: 16px; text-shadow: 0 0 10px rgba(255,93,115,0.6); }
-  h1 { font-family: "Dela Gothic One", "Hiragino Kaku Gothic ProN", sans-serif; font-weight: 400; font-size: 54px; line-height: 1; color: #fff; text-shadow: 0 0 22px rgba(127,216,255,0.55), 0 2px 0 #05060d; margin: 4px 0 8px; }
-  .tag { font-size: 14px; letter-spacing: 0.18em; color: #7fd8ff; text-transform: uppercase; font-weight: 700; }
-  .slash { height: 2px; background: #ff5d73; width: 1.6in; margin-top: 9px; }
-  .body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.36in; padding: 0.08in 0.5in 0; }
+  .bolt { position: absolute; inset: 0; z-index: 2; opacity: 0.55; }
+  .top { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; top: 0.35in; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.28em; color: #9aa0d0; text-transform: uppercase; font-weight: 700; }
+  .title { position: absolute; z-index: 3; left: 0.5in; right: 0.5in; bottom: 0.3in; }
+  .kana { font-family: "Potta One", "Hiragino Mincho ProN", serif; color: #ff5d73; font-size: 17px; text-shadow: 0 0 10px rgba(255,93,115,0.6); }
+  h1 { font-family: "Dela Gothic One", "Hiragino Kaku Gothic ProN", sans-serif; font-weight: 400; font-size: 58px; line-height: 1; color: #fff; letter-spacing: -0.01em; text-shadow: 0 0 22px rgba(127,216,255,0.55), 0 2px 0 #05060d; margin: 4px 0 8px; }
+  .tag { font-size: 15px; letter-spacing: 0.18em; color: #7fd8ff; text-transform: uppercase; font-weight: 700; }
+  .slash { height: 2px; background: #ff5d73; width: 1.6in; margin-top: 10px; }
+  .body { display: grid; grid-template-columns: 1.25fr 1fr; gap: 0.38in; padding: 0.1in 0.5in 0; }
   h2 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 12px; letter-spacing: 0.22em; color: #ffe27a; text-transform: uppercase; margin-bottom: 8px; }
-  p { font-size: 11.5px; line-height: 1.55; color: #cfd2ff; }
-  .block { margin-bottom: 0.17in; }
-  .pillars { list-style: none; display: grid; gap: 9px; }
-  .pillars li { display: grid; grid-template-columns: 26px 1fr; gap: 8px; font-size: 11.2px; line-height: 1.5; color: #cfd2ff; }
-  .pillars .n { font-family: "Dela Gothic One", sans-serif; color: #7fd8ff; font-size: 18px; line-height: 1; }
-  .pillars b { color: #fff; }
-  .steps { list-style: none; border-left: 2px solid #ff5d73; padding-left: 12px; display: grid; gap: 9px; }
-  .steps li { font-size: 11px; line-height: 1.45; color: #cfd2ff; }
-  .steps b { display: block; color: #fff; font-size: 11.5px; }
-  .steps em { font-style: normal; color: #7fd8ff; font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
-  ul.agenda { list-style: none; display: grid; gap: 5px; }
-  ul.agenda li { font-size: 11px; color: #e8e6ff; padding-left: 16px; position: relative; }
-  ul.agenda li::before { content: ""; position: absolute; left: 0; top: 5px; width: 7px; height: 7px; background: #ffe27a; transform: rotate(45deg); }
-  .game { border: 1px solid #7fd8ff; border-radius: 6px; padding: 10px 12px; background: rgba(127,216,255,0.06); margin-top: 0.14in; }
-  .game b { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #fff; font-size: 14px; display: block; margin-bottom: 3px; }
-  .game p { font-size: 10.8px; }
-  .cta { margin: 0.2in 0.5in 0; border: 1px solid #ffe27a; border-radius: 8px; background: rgba(255,226,122,0.07); padding: 14px 18px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
-  .cta h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #ffe27a; font-size: 18px; margin-bottom: 4px; }
-  .cta p { font-size: 11px; }
-  .windows { display: grid; gap: 4px; text-align: right; font-size: 11px; color: #fff; font-weight: 700; }
-  .windows span { color: #7fd8ff; letter-spacing: 0.14em; font-size: 9.5px; text-transform: uppercase; display: block; }
-  footer.pg { display: flex; justify-content: space-between; margin: 0.18in 0.5in 0.2in; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
-
+  p { font-size: 11.5px; line-height: 1.6; color: #cfd2ff; }
+  .block { margin-bottom: 0.2in; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 11px; }
+  .facts dt { color: #7fd8ff; font-weight: 700; }
+  .facts dd { color: #e8e6ff; }
+  .ep { border: 1px solid #ffe27a; border-radius: 6px; padding: 12px 14px; background: rgba(255,226,122,0.06); }
+  .ep .big { font-family: "Dela Gothic One", sans-serif; font-size: 26px; color: #ffe27a; line-height: 1; margin: 4px 0 6px; }
+  ol.tracks { list-style: none; counter-reset: t; columns: 1; }
+  ol.tracks li { counter-increment: t; font-size: 11px; padding: 3.5px 0; border-bottom: 1px solid rgba(255,255,255,0.08); color: #e8e6ff; display: flex; gap: 8px; }
+  ol.tracks li::before { content: counter(t, decimal-leading-zero); color: #7fd8ff; font-weight: 700; min-width: 18px; }
+  .game { border: 1px solid #7fd8ff; border-radius: 6px; padding: 12px 14px; background: rgba(127,216,255,0.06); }
+  .game b { font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #fff; font-size: 16px; display: block; margin-bottom: 4px; }
+  .links { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.62in; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 12px; }
+  .links div { font-size: 9.5px; color: #9aa0d0; line-height: 1.5; }
+  .links b { display: block; color: #7fd8ff; letter-spacing: 0.16em; font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
+  .links span { color: #e8e6ff; word-break: break-all; }
+  footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
   .schedule { width: 8.5in; margin: 0 auto; padding: 0.5in; background: #05060d; border-top: 1px solid rgba(255,255,255,0.1); }
   .schedule h2 { font-size: 14px; }
   .schedule h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 30px; color: #fff; margin: 4px 0 8px; }
@@ -72,48 +66,29 @@
   .done { margin-top: 24px; max-width: 600px; padding: 24px; border: 1px solid #ffe27a; background: rgba(255,226,122,0.07); border-radius: 8px; display: grid; gap: 10px; }
   .done h3 { font-size: 22px; margin: 0; }
   .done a.ics { color: #05060d; background: #ffe27a; padding: 12px 18px; border-radius: 4px; font-weight: 900; font-size: 13px; text-decoration: none; justify-self: start; }
-
-
-  .sheet { margin-bottom: 24px; }
-  .banner.small { height: 2.5in; }
-  .banner.small img { top: -0.55in; }
-  h1.sm { font-size: 38px; margin: 3px 0 6px; }
-  .pad { padding: 0.12in 0.5in 0; }
-  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 0.2in; }
-  .node { position: relative; background: #141414; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 10px 11px; min-height: 0.95in; }
-  .node::after { content: "\203A"; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); color: #ffe27a; font-size: 22px; font-weight: 900; line-height: 1; }
-  .node.end { border-color: #ffe27a; background: rgba(255,226,122,0.07); }
-  .node.end::after { display: none; }
-  .node small { display: block; color: #7fd8ff; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
-  .node b { display: block; font-family: "Dela Gothic One", sans-serif; font-weight: 400; color: #fff; font-size: 12.5px; line-height: 1.15; margin-bottom: 4px; }
-  .node span { font-size: 10px; color: #9aa0d0; line-height: 1.35; display: block; }
-  .body2 { display: grid; grid-template-columns: 1fr 1.1fr; gap: 0.36in; }
-  .need { display: grid; grid-template-columns: 1fr 1fr; gap: 0.36in; margin-top: 0.08in; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.17in; }
-  .built { border: 1px solid #ffe27a; border-radius: 8px; background: rgba(255,226,122,0.07); padding: 12px 14px; }
-  .built p { font-size: 11px; }
-  @media print { .sheet { margin-bottom: 0; break-after: page; page-break-after: always; } .sheet.p2 { break-after: auto; page-break-after: auto; } }
+  .schedule { margin-top: 24px; }
+  @media print { .schedule { display: none; } }
+  @media (max-width: 8.6in) { .schedule { width: 100%; } }
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
-  @media print { body { padding: 0; } .schedule { display: none; } }
-  @media (max-width: 8.6in) { .sheet, .schedule { width: 100%; } .body, .body2, .need { grid-template-columns: 1fr; } .flow { grid-template-columns: 1fr; } .node::after { content: "\2193"; right: auto; left: 50%; top: auto; bottom: -19px; transform: translateX(-50%); } .banner.small img { width: 100%; } .cta { grid-template-columns: 1fr; } .windows { text-align: left; } .banner img { width: 100%; } }
+  @media print { body { padding: 0; } }
 </style>
 </head>
 <body>
-
 <div class="sheet">
   <div class="banner">
     <img src="assets/octavia-hero.jpg" alt="Octavia the Great in a black kimono and conical hat, in a horse stance on wet stone">
-    <svg class="bolt" viewBox="0 0 816 336" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="bolt" viewBox="0 0 816 413" preserveAspectRatio="none" aria-hidden="true">
       <g fill="none" stroke="#7fd8ff" stroke-linecap="round" stroke-linejoin="round">
-        <polyline stroke-width="2.2" points="690,0 672,48 690,62 658,116 676,132 640,190"/>
-        <polyline stroke-width="1.2" points="676,132 706,160 700,190"/>
-        <polyline stroke-width="1.6" points="120,0 136,36 118,52 142,92"/>
+        <polyline stroke-width="2.2" points="690,0 672,54 690,70 658,132 676,150 640,214"/>
+        <polyline stroke-width="1.2" points="676,150 706,180 700,214"/>
+        <polyline stroke-width="1.6" points="120,0 136,40 118,58 142,104"/>
       </g>
     </svg>
-    <div class="top"><span>Invitation to the cohort</span><span>Prepared for Octavia</span></div>
+    <div class="top"><span>Artist One Sheet</span><span>Prepared by IDU House</span></div>
     <div class="title">
       <div class="kana">オクタヴィア・ザ・グレート</div>
-      <h1>LET'S BUILD<br>THE ALBUM</h1>
-      <div class="tag">IDU House &times; Octavia the Great</div>
+      <h1>OCTAVIA<br>THE GREAT</h1>
+      <div class="tag">Authenticity is rare</div>
       <div class="slash"></div>
     </div>
   </div>
@@ -121,133 +96,60 @@
   <div class="body">
     <div>
       <div class="block">
-        <h2>Why this works</h2>
-        <p>Your bars are already moving on Threads and TikTok, your content plan is set, and people are feeling it. That is the hardest part. IDU House is the engine behind artists who are already in motion. We leave what is working alone, carry that momentum to Instagram and Facebook, and point all of it at an album people show up for.</p>
+        <h2>The artist</h2>
+        <p>Octavia the Great is an independent artist from Virginia's Hampton Roads who puts her music straight into her fans' hands. Her music is free for an email, her next EP is funded by the people who want to hear it first, and her whole world is built on one idea: authenticity is rare.</p>
+        <p style="margin-top:8px">By day she runs AIR Waves Entertainment, a social media management and lead generation company for small businesses across Hampton Roads, so she knows how to build an audience as well as a catalog.</p>
       </div>
       <div class="block">
-        <h2>How we work together</h2>
-        <ul class="pillars">
-          <li><span class="n">1</span><span><b>Carry the momentum.</b> Your Threads plan stays yours. We build the bridge from Threads and TikTok to Instagram and Facebook, where natural engagement is lower, with remixes and collabs like the one we already started, and turn new attention into your email list and downloads.</span></li>
-          <li><span class="n">2</span><span><b>Build the album.</b> Production help when you need it: mixing, mastering and production. A release plan that works backward from your album goal.</span></li>
-          <li><span class="n">3</span><span><b>Get it heard.</b> Subgenre first playlist and curator pitching, timed for release day, with a one sheet that tells your story.</span></li>
-          <li><span class="n">4</span><span><b>Join the house.</b> A cohort of artists, creators and partners who share ideas, opportunities and momentum, with founders Aaron and Amadin running the operations behind it.</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <div class="block">
-        <h2>The first 90 days</h2>
-        <ul class="steps">
-          <li><em>Week 1</em><b>Lock it in</b>Set how you join the cohort and define the album goal.</li>
-          <li><em>Days 8 to 30</em><b>Momentum bridge</b>Threads and TikTok momentum flowing into Instagram and Facebook. Weekly check on what is working.</li>
-          <li><em>Days 31 to 60</em><b>Album build</b>Production, mixing and mastering. Fan funding push for studio costs.</li>
-          <li><em>Days 61 to 90</em><b>Release run</b>Pitching, placements and rollout, with fan game unlocks tied to the drop.</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h2>What we decide on the call</h2>
-        <ul class="agenda">
-          <li>How you join the cohort</li>
-          <li>Your album goal and what it takes to hit it</li>
-          <li>Which bars we carry to Instagram and Facebook first</li>
-          <li>How Aaron and Amadin can support AIR Waves</li>
-          <li>Who does what in the first 30 days</li>
-        </ul>
+        <h2>At a glance</h2>
+        <dl class="facts">
+          <dt>Based</dt><dd>Hampton Roads, Virginia</dd>
+          <dt>Model</dt><dd>Direct to fan. Free downloads for an email, optional number for new drops</dd>
+          <dt>Catalog</dt><dd>12 tracks available now</dd>
+          <dt>Next</dt><dd>New EP, funded by fans with an early listen as the reward</dd>
+          <dt>Company</dt><dd>AIR Waves Entertainment INC</dd>
+        </dl>
       </div>
       <div class="game">
-        <b>Already built for you</b>
-        <p>Storm Bars, a playable rap battle game in your world. Keeps fans inside your music after they find you. Play it at games.dad-rap.com/storm-bars</p>
+        <b>Storm Bars</b>
+        <p>A playable rap battle rhythm fighter built around her world. Hit the bars on the beat, knock out the voices of doubt. Prototype, play it on your phone at games.dad-rap.com/storm-bars</p>
       </div>
     </div>
-  </div>
 
-  <div class="cta">
     <div>
-      <h3>Book our next meeting</h3>
-      <p>One call to lock in exactly how you join the cohort and how we help you reach your album goal. Pick a time on the last page of the web version.</p>
-    </div>
-    <div class="windows">
-      <div><span>Sundays</span>3 to 5 PM ET</div>
-      <div><span>IDU House office hours</span>Tue to Thu, 9 to 10 PM ET</div>
-    </div>
-  </div>
-  <footer class="pg"><span>IDU House &nbsp;·&nbsp; Independent music and creative company</span><span>iduhouse.com &nbsp;·&nbsp; 1 of 2</span></footer>
-</div>
-
-
-<div class="sheet p2">
-  <div class="banner small">
-    <img src="assets/octavia-hero.jpg" alt="">
-    <svg class="bolt" viewBox="0 0 816 230" preserveAspectRatio="none" aria-hidden="true">
-      <g fill="none" stroke="#7fd8ff" stroke-linecap="round" stroke-linejoin="round">
-        <polyline stroke-width="2" points="700,0 682,40 700,52 668,96 684,110 650,160"/>
-        <polyline stroke-width="1.4" points="110,0 126,30 108,44 130,78"/>
-      </g>
-    </svg>
-    <div class="top"><span>Strategy at a glance</span><span>Prepared for Octavia</span></div>
-    <div class="title">
-      <div class="kana">モメンタム・ブリッジ</div>
-      <h1 class="sm">THE MOMENTUM BRIDGE</h1>
-      <div class="tag">From Threads and TikTok to Instagram and Facebook</div>
-      <div class="slash"></div>
-    </div>
-  </div>
-
-  <div class="pad">
-    <div class="flow" aria-label="Momentum flow">
-      <div class="node"><small>Spark</small><b>Threads + TikTok</b><span>Where the bars win now</span></div>
-      <div class="node"><small>Discover</small><b>Instagram</b><span>Reels, carousels, Stories</span></div>
-      <div class="node"><small>Community</small><b>Facebook</b><span>Posts, groups, events</span></div>
-      <div class="node"><small>Own it</small><b>Email + music</b><span>Downloads and EP fund</span></div>
-      <div class="node end"><small>Payoff</small><b>The album</b><span>A fan base that shows up</span></div>
-    </div>
-
-    <div class="body2">
-      <div>
-        <div class="block">
-          <h2>Where you are</h2>
-          <p>Threads is working. Your content plan is set, the bars are landing, and TikTok is backing it up. We do not touch that. It is the spark.</p>
-        </div>
-        <div class="block">
-          <h2>The gap</h2>
-          <p>Instagram and Facebook are not giving you much natural engagement yet. That is normal when an audience has not been shown a reason to care there. Those platforms reward content made for them, plus people who already know you. Right now your bars are not native there, and your Threads fans do not know where else to find you.</p>
-        </div>
-        <div class="block">
-          <h2>What success looks like</h2>
-          <p>Followers on Instagram and Facebook who came from your bars, engaging without being asked, and a growing email list heading into the album. Real targets get set together on the call.</p>
-        </div>
+      <div class="block">
+        <h2>Hear it now</h2>
+        <ol class="tracks">
+          <li>No Bra</li>
+          <li>Bad</li>
+          <li>Vision in the Night</li>
+          <li>Cain and Abel</li>
+          <li>The Confidence Chant</li>
+          <li>The Confidence Chant (alarm sound)</li>
+          <li>Shook Ones Freestyle</li>
+          <li>One in a Million</li>
+          <li>The Spell of the East</li>
+          <li>Erbody Mad</li>
+          <li>Bow Bow Bow</li>
+          <li>Everything Is Possible for Me</li>
+        </ol>
       </div>
-
-      <div>
-        <div class="block">
-          <h2>Four moves, high level</h2>
-          <ul class="pillars">
-            <li><span class="n">1</span><span><b>Carry the proof.</b> Take the bars that already win and remake them natively for Instagram and Facebook, using the fact that they work as the hook.</span></li>
-            <li><span class="n">2</span><span><b>Give a reason to follow.</b> Send your Threads and TikTok fans somewhere with something only there: full verses, alt takes, behind the scenes, early EP listens, Storm Bars.</span></li>
-            <li><span class="n">3</span><span><b>Borrow audiences.</b> Collab posts, remixes and features put your bars in front of other communities. The remix and collab post we started is the template.</span></li>
-            <li><span class="n">4</span><span><b>Own the audience.</b> Every platform points to your email list, downloads and album fund, so no algorithm can take it away.</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="need">
-      <div>
-        <h2>What we need from you</h2>
-        <ul class="agenda">
-          <li>Your best performing bars and clips from Threads and TikTok</li>
-          <li>A look at your Instagram and Facebook insights</li>
-          <li>Your Threads plan, so we fit around it</li>
-        </ul>
-      </div>
-      <div class="built">
-        <h2>The full plan</h2>
-        <p>This page is the direction, not the finished plan. We build the full plan with you on our call: cadence, formats, who does what, and the targets.</p>
+      <div class="ep">
+        <h2 style="margin-bottom:2px">The next EP</h2>
+        <div class="big">$1,382</div>
+        <p>Raised for studio time, mixing and mastering. Not a label and not an advance, just what it costs. Supporters hear the EP before anyone else.</p>
       </div>
     </div>
   </div>
-  <footer class="pg"><span>IDU House &nbsp;·&nbsp; Independent music and creative company</span><span>iduhouse.com &nbsp;·&nbsp; 2 of 2</span></footer>
+
+  <div class="links">
+    <div><b>Music</b><span>airwavesent.com/octaviathegreat</span></div>
+    <div><b>Instagram</b><span>@octaviathegreat888</span></div>
+    <div><b>TikTok</b><span>@octaviathegreat888</span></div>
+    <div><b>YouTube</b><span>@octaviathegreat888</span></div>
+    <div><b>Facebook</b><span>facebook.com/onlythegreats1</span></div>
+  </div>
+  <footer><span>Octavia the Great</span><span>Prepared by IDU House &nbsp;·&nbsp; iduhouse.com</span></footer>
 </div>
 
 <section class="schedule" id="book">
