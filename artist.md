@@ -19,7 +19,7 @@
 
 ## Short bio
 
-Octavia the Great is an independent artist from Virginia's Hampton Roads who puts her music straight into her fans' hands. Her music is free for an email, her next EP is funded by the people who want to hear it first, and her whole world is built on one idea: authenticity is rare.
+Octavia the Great is an independent artist from Virginia's Hampton Roads who puts her music straight into her fans' hands. Her music is free for an email, her next EP is on the way, and her whole world is built on one idea: authenticity is rare.
 
 By day she runs AIR Waves Entertainment, a social media management and lead generation company for small businesses across Hampton Roads, so she knows how to build an audience as well as a catalog.
 
@@ -28,8 +28,8 @@ By day she runs AIR Waves Entertainment, a social media management and lead gene
 - Direct to fan. Music is free to download in exchange for an email.
 - A phone number is optional and used only for new drops.
 - Downloads land in the fan's inbox within about a minute, with a one tap save all option on the page.
-- Fan funded releases. The next EP has a $1,382 goal for studio time, mixing and mastering. Supporters hear the EP before anyone else. Checkout runs through Stripe, with card and Apple Pay.
-- IDU House's goal for the EP: help strategize and spend money effectively to amplify the project, putting budget behind the content already earning natural engagement.
+- The next EP has a $1,382 goal, with checkout through Stripe (card and Apple Pay).
+- IDU House's role on the EP: help her strategically spend money to get the project done and amplify what she is already doing, with strategies that build momentum.
 
 ## Catalog (12 tracks, free download)
 
