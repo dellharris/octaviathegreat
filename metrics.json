@@ -1,7 +1,15 @@
 {
   "updated": "",
   "items": [
-    { "label": "Threads impressions", "value": "", "period": "" },
-    { "label": "Threads followers", "value": "", "period": "" }
+    {
+      "label": "Threads",
+      "value": "Posting daily",
+      "period": ""
+    },
+    {
+      "label": "Threads followers",
+      "value": "",
+      "period": ""
+    }
   ]
 }
