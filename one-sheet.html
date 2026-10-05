@@ -55,14 +55,14 @@
   footer a { color: #9aa0d0; text-decoration: none; }
   footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
-  @media print { body { padding: 0; } .cform, .fab, .menu-btn, .menu { display: none !important; } }
+  @media print { body { padding: 0; } .cform, .dock, .menu { display: none !important; } }
   body { overflow-x: hidden; }
-  .menu-btn { position: fixed; z-index: 20; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; background: #0b0d1c; color: #fff; border: 1px solid rgba(255,226,122,0.7); font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 20px 8px 12px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,0.5); cursor: pointer; }
-  .menu-btn img { display: block; height: 44px; width: auto; }
+  .menu-btn { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #fff; border: 1px solid rgba(255,226,122,0.7); font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 20px 6px 12px; border-radius: 999px; cursor: pointer; }
+  .menu-btn img { display: block; height: 40px; width: auto; }
   .menu-btn span { display: inline-block; width: 16px; height: 2px; background: #ffe27a; box-shadow: 0 5px 0 #ffe27a, 0 -5px 0 #ffe27a; }
   .menu { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; top: 0; background: rgba(5,6,13,0.72); display: none; }
   .menu.open { display: block; }
-  .menu-panel { position: absolute; left: 12px; bottom: 12px; width: min(360px, calc(100vw - 24px)); max-height: calc(100vh - 24px); overflow: auto; background: #0b0d1c; border: 1px solid rgba(255,226,122,0.5); border-radius: 12px; padding: 18px 18px 14px; box-shadow: 0 12px 48px rgba(0,0,0,0.7); }
+  .menu-panel { position: absolute; left: 12px; bottom: 92px; width: min(360px, calc(100vw - 24px)); max-height: calc(100vh - 110px); overflow: auto; background: #0b0d1c; border: 1px solid rgba(255,226,122,0.5); border-radius: 12px; padding: 18px 18px 14px; box-shadow: 0 12px 48px rgba(0,0,0,0.7); }
   .menu-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
   .menu-head img { height: 54px; width: auto; }
   .menu-close { background: none; border: 0; color: #9aa0d0; font-size: 30px; line-height: 1; cursor: pointer; padding: 4px 8px; }
@@ -70,7 +70,9 @@
   .menu a { display: flex; justify-content: space-between; align-items: center; color: #e8e6ff; text-decoration: none; font-size: 16px; padding: 11px 2px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .menu a small { color: #6a70a0; font-size: 12px; }
   .menu a:hover, .menu a:focus-visible { color: #7fd8ff; }
-  .fab { position: fixed; z-index: 20; right: 16px; bottom: 16px; background: #ff5d73; color: #fff; text-decoration: none; font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 22px 13px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 18px rgba(255,93,115,0.5); }
+  .dock { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px max(14px, calc((100% - 8.5in) / 2 + 0.5in)) calc(10px + env(safe-area-inset-bottom)); background: #1a2160; border-top: 2px solid #ffe27a; box-shadow: 0 -6px 24px rgba(0,0,0,0.45); }
+  @media screen { body { padding-bottom: 82px; } }
+  .fab { background: #ff5d73; color: #fff; text-decoration: none; font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 24px 13px; border-radius: 999px; box-shadow: 0 0 18px rgba(255,93,115,0.45); }
   .cform { width: min(8.5in, 100%); margin: 0 auto; padding: 0.5in 0.5in 1in; background: #05060d; border-top: 1px solid rgba(255,255,255,0.1); scroll-margin-top: 10px; }
   .cform h2 { font-size: 14px; }
   .cform h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 30px; color: #fff; margin: 4px 0 8px; }
@@ -218,8 +220,10 @@
   </form>
   <div id="cMsg" class="msg" role="status"></div>
 </section>
-<a class="fab" href="#contact">Contact</a>
+<div class="dock">
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><img src="assets/idu-house-logo.png" alt="IDU House"><span></span>Menu</button>
+<a class="fab" href="#contact">Contact</a>
+</div>
 <div class="menu" id="menu" aria-hidden="true">
   <nav class="menu-panel" aria-label="Octavia the Great links">
     <div class="menu-head"><img src="assets/idu-house-logo.png" alt="IDU House"><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button></div>
