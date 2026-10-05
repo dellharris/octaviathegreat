@@ -49,20 +49,16 @@
   .links div { font-size: 9.5px; color: #9aa0d0; line-height: 1.5; }
   .links b { display: block; color: #7fd8ff; letter-spacing: 0.16em; font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
   .links span { color: #e8e6ff; word-break: break-all; }
-  .idu { display: inline-flex; align-items: center; gap: 0.9em; color: #e8e6ff; text-decoration: none; }
-  .idu img { display: block; width: auto; height: 62px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.65)); }
-  .contact { position: absolute; z-index: 3; right: 0.5in; bottom: 0.32in; text-align: right; text-decoration: none; }
-  .contact b { display: inline-block; padding: 9px 20px 8px; background: #ff5d73; color: #fff; font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 3px; box-shadow: 0 0 16px rgba(255,93,115,0.5); }
-  .contact span { display: block; margin-top: 6px; font-size: 9px; letter-spacing: 0.14em; color: #cfd2ff; text-transform: uppercase; font-weight: 700; }
+  .idu { color: inherit; text-decoration: none; }
   .facts .stat { color: #ffe27a; font-weight: 700; }
   .facts small { color: #6a70a0; font-size: 9px; letter-spacing: 0.1em; }
-  .idu em { font-style: normal; color: #9aa0d0; }
   footer a { color: #9aa0d0; text-decoration: none; }
   footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
   @media print { body { padding: 0; } .cform, .fab, .menu-btn, .menu { display: none !important; } }
   body { overflow-x: hidden; }
-  .menu-btn { position: fixed; z-index: 20; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; background: #0b0d1c; color: #fff; border: 1px solid rgba(255,226,122,0.7); font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 20px 12px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,0.5); cursor: pointer; }
+  .menu-btn { position: fixed; z-index: 20; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; background: #0b0d1c; color: #fff; border: 1px solid rgba(255,226,122,0.7); font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 8px 20px 8px 12px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,0.5); cursor: pointer; }
+  .menu-btn img { display: block; height: 44px; width: auto; }
   .menu-btn span { display: inline-block; width: 16px; height: 2px; background: #ffe27a; box-shadow: 0 5px 0 #ffe27a, 0 -5px 0 #ffe27a; }
   .menu { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; top: 0; background: rgba(5,6,13,0.72); display: none; }
   .menu.open { display: block; }
@@ -104,8 +100,7 @@
         <polyline stroke-width="1.6" points="120,0 136,40 118,58 142,104"/>
       </g>
     </svg>
-    <div class="top"><span>Artist One Sheet</span><a class="idu" href="https://iduhouse.com" aria-label="IDU House"><em>Prepared by</em><img src="assets/idu-house-logo.png" alt="IDU House" height="62"></a></div>
-    <a class="contact" href="#contact" aria-label="Contact IDU House about Octavia the Great"><b>Contact</b><span>Bookings and opportunities &middot; dell@iduhouse.com</span></a>
+    <div class="top"><span>Artist One Sheet</span><a class="idu" href="https://iduhouse.com">Prepared by IDU House</a></div>
     <div class="title">
       <div class="kana">オクタヴィア・ザ・グレート</div>
       <h1>OCTAVIA<br>THE GREAT</h1>
@@ -200,7 +195,7 @@
   <div id="cMsg" class="msg" role="status"></div>
 </section>
 <a class="fab" href="#contact">Contact</a>
-<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span></span>Menu</button>
+<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><img src="assets/idu-house-logo.png" alt="IDU House"><span></span>Menu</button>
 <div class="menu" id="menu" aria-hidden="true">
   <nav class="menu-panel" aria-label="Octavia the Great links">
     <div class="menu-head"><img src="assets/idu-house-logo.png" alt="IDU House"><button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button></div>
