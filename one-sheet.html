@@ -58,7 +58,25 @@
   footer a { color: #9aa0d0; text-decoration: none; }
   footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
-  @media print { body { padding: 0; } }
+  @media print { body { padding: 0; } .cform, .fab { display: none; } }
+  body { overflow-x: hidden; }
+  .fab { position: fixed; z-index: 20; right: 16px; bottom: 16px; background: #ff5d73; color: #fff; text-decoration: none; font-family: "Dela Gothic One", sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 22px 13px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 18px rgba(255,93,115,0.5); }
+  .cform { width: min(8.5in, 100%); margin: 0 auto; padding: 0.5in 0.5in 1in; background: #05060d; border-top: 1px solid rgba(255,255,255,0.1); scroll-margin-top: 10px; }
+  .cform h2 { font-size: 14px; }
+  .cform h3 { font-family: "Dela Gothic One", sans-serif; font-weight: 400; font-size: 30px; color: #fff; margin: 4px 0 8px; }
+  .cform .lead { font-size: 13px; color: #cfd2ff; max-width: 6in; }
+  .cform form { margin-top: 22px; display: grid; gap: 14px; max-width: 600px; }
+  .cform label { font-size: 12px; color: #9aa0d0; display: grid; gap: 5px; }
+  .cform input, .cform select, .cform textarea { background: #141414; border: 1px solid rgba(255,255,255,0.14); color: #e8e6ff; padding: 12px; border-radius: 4px; font: inherit; font-size: 16px; width: 100%; }
+  .cform textarea { min-height: 120px; resize: vertical; }
+  .cform button { background: #ffe27a; color: #05060d; border: 0; padding: 15px 26px; border-radius: 4px; font-family: "Dela Gothic One", sans-serif; font-size: 14px; letter-spacing: 0.1em; cursor: pointer; }
+  .cform button[disabled] { opacity: 0.6; cursor: wait; }
+  .cform .msg { margin-top: 16px; max-width: 600px; padding: 14px 16px; border-radius: 4px; font-size: 14px; display: none; }
+  .cform .msg.ok { display: block; border: 1px solid #ffe27a; background: rgba(255,226,122,0.08); color: #fff; }
+  .cform .msg.bad { display: block; border: 1px solid #ff5d73; background: rgba(255,93,115,0.08); color: #fff; }
+  .cform .msg a { color: #ffe27a; font-weight: 700; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  @media (max-width: 600px) { .cform { padding: 28px 18px 100px; } }
 </style>
 </head>
 <body>
@@ -73,7 +91,7 @@
       </g>
     </svg>
     <div class="top"><span>Artist One Sheet</span><a class="idu" href="https://iduhouse.com" aria-label="IDU House"><em>Prepared by</em><i>IDU HOUSE</i></a></div>
-    <a class="contact" href="mailto:dell@iduhouse.com?subject=Octavia%20the%20Great%20opportunity" aria-label="Contact IDU House about Octavia the Great"><b>Contact</b><span>Bookings and opportunities &middot; dell@iduhouse.com</span></a>
+    <a class="contact" href="#contact" aria-label="Contact IDU House about Octavia the Great"><b>Contact</b><span>Bookings and opportunities &middot; dell@iduhouse.com</span></a>
     <div class="title">
       <div class="kana">オクタヴィア・ザ・グレート</div>
       <h1>OCTAVIA<br>THE GREAT</h1>
@@ -142,7 +160,67 @@
   <footer><span>Octavia the Great</span><span>Prepared by IDU House &nbsp;·&nbsp; <a href="https://iduhouse.com">iduhouse.com</a></span></footer>
 </div>
 
+<section class="cform" id="contact">
+  <h2>Contact</h2>
+  <h3>Work with Octavia.</h3>
+  <p class="lead">Bookings, collaborations, press, brand partnerships, licensing. Send a note and IDU House will get back to you.</p>
+  <form id="contactForm" novalidate>
+    <label>Your name<input name="name" required autocomplete="name" placeholder="Your name"></label>
+    <label>Email<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+    <label>Company or group (optional)<input name="organization" autocomplete="organization"></label>
+    <label>What is this about
+      <select name="topic">
+        <option>Booking a show</option>
+        <option>Collaboration</option>
+        <option>Press or interview</option>
+        <option>Brand partnership</option>
+        <option>Licensing or sync</option>
+        <option>Something else</option>
+      </select>
+    </label>
+    <label>Message<textarea name="message" required placeholder="Tell us about the opportunity, dates, and budget if you have one."></textarea></label>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button type="submit" id="cSend">Send to IDU House</button>
+  </form>
+  <div id="cMsg" class="msg" role="status"></div>
+</section>
+<a class="fab" href="#contact">Contact</a>
+
 <script>
+  (function () {
+    const sheet = document.querySelector('.sheet');
+    const fit = () => { sheet.style.zoom = Math.min(1, window.innerWidth / 816); };
+    fit(); window.addEventListener('resize', fit);
+    const form = document.getElementById('contactForm'), msg = document.getElementById('cMsg'), btn = document.getElementById('cSend');
+    const EMAIL = 'dell@iduhouse.com';
+    const fail = () => {
+      msg.className = 'msg bad';
+      msg.innerHTML = '<b>That did not go through, and nothing was sent.</b> Please email <a href="mailto:' + EMAIL + '">' + EMAIL + '</a> directly.';
+    };
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(form));
+      if (d._honey) return;
+      if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email.trim()) || !d.message.trim()) {
+        msg.className = 'msg bad'; msg.textContent = 'Please add your name, a valid email and a message.'; return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending...'; msg.className = 'msg';
+      const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 15000);
+      try {
+        const r = await fetch('https://formsubmit.co/ajax/' + EMAIL, {
+          method: 'POST', signal: ctl.signal,
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ name: d.name, email: d.email, organization: d.organization, topic: d.topic, message: d.message,
+            _subject: 'Octavia the Great: ' + d.topic, _template: 'table', _captcha: 'false' })
+        });
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || !(j.success === true || j.success === 'true')) throw new Error('rejected');
+        form.reset();
+        msg.className = 'msg ok'; msg.textContent = 'Thank you. Your note is on its way to IDU House and we will be in touch.';
+      } catch (err) { fail(); }
+      finally { clearTimeout(timer); btn.disabled = false; btn.textContent = 'Send to IDU House'; }
+    });
+  })();
   fetch('metrics.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(m => {
     if (!m || !Array.isArray(m.items)) return;
     const shown = m.items.filter(i => i && String(i.value || '').trim());
