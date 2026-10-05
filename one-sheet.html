@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Octavia the Great | One Sheet</title>
+<title>Octavia the Great | Artist Page | IDU House</title>
+<meta name="description" content="Octavia the Great, independent artist from Hampton Roads, Virginia. Authenticity is rare. Artist page by IDU House.">
+<link rel="canonical" href="https://octavia.iduhouse.com/">
+<meta property="og:title" content="Octavia the Great | IDU House">
+<meta property="og:description" content="Authenticity is rare. Artist page by IDU House.">
+<meta property="og:url" content="https://octavia.iduhouse.com/">
+<meta property="og:image" content="https://octavia.iduhouse.com/assets/octavia-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Potta+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
@@ -41,6 +47,10 @@
   .links div { font-size: 9.5px; color: #9aa0d0; line-height: 1.5; }
   .links b { display: block; color: #7fd8ff; letter-spacing: 0.16em; font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
   .links span { color: #e8e6ff; word-break: break-all; }
+  .idu { display: inline-flex; align-items: center; gap: 0.7em; color: #e8e6ff; text-decoration: none; }
+  .idu i { font-style: normal; display: inline-block; padding: 0.35em 0.7em 0.3em; border: 1px solid #ff5d73; color: #fff; background: rgba(255,93,115,0.16); box-shadow: 0 0 12px rgba(255,93,115,0.35); font-family: "Dela Gothic One", "Zen Kaku Gothic New", sans-serif; letter-spacing: 0.22em; font-weight: 400; }
+  .idu em { font-style: normal; color: #9aa0d0; }
+  footer a { color: #9aa0d0; text-decoration: none; }
   footer { position: absolute; left: 0.5in; right: 0.5in; bottom: 0.22in; display: flex; justify-content: space-between; font-size: 9px; color: #6a70a0; letter-spacing: 0.14em; text-transform: uppercase; }
   .schedule { width: 8.5in; margin: 0 auto; padding: 0.5in; background: #05060d; border-top: 1px solid rgba(255,255,255,0.1); }
   .schedule h2 { font-size: 14px; }
@@ -71,6 +81,8 @@
   @media (max-width: 8.6in) { .schedule { width: 100%; } }
   @media screen { body { padding: 20px 0; } .sheet { box-shadow: 0 0 40px rgba(127,216,255,0.15); } }
   @media print { body { padding: 0; } }
+  .err { margin-top: 16px; max-width: 600px; padding: 14px 16px; border: 1px solid #ff5d73; background: rgba(255,93,115,0.08); border-radius: 6px; font-size: 13px; color: #ffd6dc; line-height: 1.5; }
+  .err a { color: #ffe27a; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -84,7 +96,7 @@
         <polyline stroke-width="1.6" points="120,0 136,40 118,58 142,104"/>
       </g>
     </svg>
-    <div class="top"><span>Artist One Sheet</span><span>Prepared by IDU House</span></div>
+    <div class="top"><span>Artist One Sheet</span><a class="idu" href="https://iduhouse.com" aria-label="IDU House"><em>Prepared by</em><i>IDU HOUSE</i></a></div>
     <div class="title">
       <div class="kana">オクタヴィア・ザ・グレート</div>
       <h1>OCTAVIA<br>THE GREAT</h1>
@@ -149,7 +161,7 @@
     <div><b>YouTube</b><span>@octaviathegreat888</span></div>
     <div><b>Facebook</b><span>facebook.com/onlythegreats1</span></div>
   </div>
-  <footer><span>Octavia the Great</span><span>Prepared by IDU House &nbsp;·&nbsp; iduhouse.com</span></footer>
+  <footer><span>Octavia the Great</span><span>Prepared by IDU House &nbsp;·&nbsp; <a href="https://iduhouse.com">iduhouse.com</a></span></footer>
 </div>
 
 <section class="schedule" id="book">
@@ -175,12 +187,14 @@
     <label>Anything you want us to know before the call? Or suggest another time (include your time zone)<textarea name="times" placeholder="Optional"></textarea></label>
     <button class="go" type="submit">Confirm request</button>
   </form>
+  <div id="err" class="err" style="display:none"></div>
   <div id="done" class="done" style="display:none"></div>
 </section>
 
 <script>
   const CONFIG = {
-    endpoint: '',
+    mc: { host: 'dellharris.us6.list-manage.com', u: '995804b0087c54bfa89b72928', id: '6add36c7e8', f_id: '000ad3e5f0' },
+    interest: 'Other',
     fallbackEmail: 'dell@iduhouse.com',
     weeks: 4,
     lastDate: '2026-10-09',
@@ -196,6 +210,19 @@
   const TZ = 'America/New_York';
   let selected = null, busy = [];
 
+  function mailchimpSend(fields) {
+    return new Promise((resolve, reject) => {
+      const cb = '_mcCb' + Date.now();
+      const mc = CONFIG.mc, s = document.createElement('script');
+      const done = () => { clearTimeout(timer); delete window[cb]; s.remove(); };
+      const timer = setTimeout(() => { done(); reject(new Error('timeout')); }, 12000);
+      window[cb] = res => { done(); resolve(res); };
+      s.onerror = () => { done(); reject(new Error('network')); };
+      const params = new URLSearchParams(Object.assign({}, fields, { ['b_' + mc.u + '_' + mc.id]: '', c: cb }));
+      s.src = 'https://' + mc.host + '/subscribe/post-json?u=' + mc.u + '&id=' + mc.id + '&f_id=' + mc.f_id + '&' + params.toString();
+      document.body.appendChild(s);
+    });
+  }
   function tzOffsetMs(date) {
     const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
       timeZone: TZ, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit',
@@ -279,15 +306,24 @@
     const points = f.getAll('pt').map((p, i) => (i + 1) + '. ' + p).join('\n');
     const payload = { name: f.get('name'), email: f.get('email'), slot: slotText, slot_iso: selected ? selected.toISOString() : '', topics: points,
       notes: f.get('times') || '', _subject: 'Cohort call request: ' + f.get('name') + ' (' + slotText + ')' };
-    let sent = false;
-    if (CONFIG.endpoint) {
-      try { const r = await fetch(CONFIG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) }); sent = r.ok; } catch (err) { sent = false; }
-    }
+    const btn = this.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Sending...';
+    let sent = false, errMsg = '';
+    const info = (payload.slot + ' | ' + payload.topics.replace(/\n/g, '; ') + ((payload.notes || payload.other_times) ? ' | ' + (payload.notes || payload.other_times) : '')).slice(0, 250);
+    try {
+      const res = await mailchimpSend({ FNAME: payload.name, EMAIL: payload.email, MMERGE5: info, MMERGE6: CONFIG.interest });
+      sent = res.result === 'success';
+      if (!sent) errMsg = String(res.msg || '').replace(/<[^>]+>/g, '');
+    } catch (err) { sent = false; }
+    btn.disabled = false; btn.textContent = 'Confirm request';
+    const errEl = document.getElementById('err');
     if (!sent) {
-      const body = 'Hi IDU House team,\n\nCohort and album planning call request.\n\nName: ' + payload.name + '\nEmail: ' + payload.email +
-        '\nRequested time: ' + slotText + '\n\nTopics:\n' + points + '\n\nNotes:\n' + (payload.notes || 'None') + '\n';
-      window.location.href = 'mailto:' + CONFIG.fallbackEmail + '?subject=' + encodeURIComponent(payload._subject) + '&body=' + encodeURIComponent(body);
+      const body = Object.entries(payload).filter(([k]) => k.charAt(0) !== '_').map(([k, v]) => k + ': ' + v).join('\n');
+      const already = /already subscribed|already a list member/i.test(errMsg);
+      errEl.style.display = 'block';
+      errEl.innerHTML = '<b>' + (already ? 'We already have your email on file, so this request was not recorded.' : 'That did not go through, and nothing was sent.') + '</b> Please email <a href="mailto:' + CONFIG.fallbackEmail + '?subject=' + encodeURIComponent(payload._subject) + '&body=' + encodeURIComponent(body) + '">' + CONFIG.fallbackEmail + '</a> with the time you want' + (already ? '.' : ', or try again.');
+      return;
     }
+    errEl.style.display = 'none';
     this.style.display = 'none';
     const done = document.getElementById('done'); done.style.display = 'grid';
     done.innerHTML = '<h3>Request received.</h3><p class="lead">' + slotText + '</p><p class="note">We will confirm by reply.</p>';
