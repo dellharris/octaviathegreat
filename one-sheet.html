@@ -87,6 +87,30 @@
   .cform .msg a { color: #ffe27a; font-weight: 700; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
   @media (max-width: 600px) { .cform { padding: 28px 18px 100px; } }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  @media screen and (max-width: 860px) {
+    body { padding: 0; }
+    .sheet { width: 100%; height: auto; box-shadow: none; }
+    .banner { height: auto; aspect-ratio: 4 / 5; max-height: 600px; }
+    .banner img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; }
+    .top { left: 18px; right: 18px; top: 18px; font-size: 9px; letter-spacing: 0.2em; }
+    .title { left: 18px; right: 18px; bottom: 22px; }
+    .kana { font-size: 15px; }
+    h1 { font-size: clamp(38px, 12vw, 58px); }
+    .tag { font-size: 13px; }
+    .body { grid-template-columns: 1fr; gap: 0; padding: 22px 18px 0; }
+    h2 { font-size: 13px; margin-bottom: 10px; }
+    p { font-size: 15.5px; line-height: 1.65; }
+    .block { margin-bottom: 26px; }
+    .facts { font-size: 15px; gap: 8px 14px; }
+    .ep, .game { margin-bottom: 26px; }
+    .game b { font-size: 18px; }
+    ol.tracks li { font-size: 15px; padding: 8px 0; }
+    .links { position: static; margin: 8px 18px 0; grid-template-columns: 1fr 1fr; gap: 16px 12px; padding-top: 18px; }
+    .links div { font-size: 13px; }
+    .links b { font-size: 11px; }
+    footer { position: static; flex-direction: column; gap: 6px; padding: 20px 18px 28px; font-size: 11px; }
+  }
 </style>
 </head>
 <body>
@@ -216,9 +240,6 @@
 
 <script>
   (function () {
-    const sheet = document.querySelector('.sheet');
-    const fit = () => { sheet.style.zoom = Math.min(1, window.innerWidth / 816); };
-    fit(); window.addEventListener('resize', fit);
     const menu = document.getElementById('menu'), mBtn = document.getElementById('menuBtn');
     const setMenu = open => { menu.classList.toggle('open', open); mBtn.setAttribute('aria-expanded', open); menu.setAttribute('aria-hidden', !open); if (open) document.getElementById('menuClose').focus(); else mBtn.focus({ preventScroll: true }); };
     mBtn.addEventListener('click', () => setMenu(true));
