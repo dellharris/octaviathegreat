@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octavia The Great — No Interference | DJ Pack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #05060d;
+      --surface:  #0b0d1c;
+      --surface-2:#111320;
+      --surface-3:#181b2e;
+      --gold:     #ffe27a;
+      --cyan:     #7fd8ff;
+      --pink:     #ff5d73;
+      --text:     #e8e6ff;
+      --muted:    #9aa0d0;
+      --dim:      #6a70a0;
+      --border:   rgba(127,216,255,0.15);
+      --border-g: rgba(255,226,122,0.2);
+    }
+
+    html, body { background: var(--bg); }
+
+    body {
+      font-family: "Zen Kaku Gothic New", system-ui, sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── HERO VIDEO ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 104vh;
+      min-height: 696px;
+      max-height: 1140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      opacity: 0.8;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(5,6,13,0.25) 0%,
+        rgba(5,6,13,0) 25%,
+        rgba(5,6,13,0.5) 60%,
+        #05060d 100%
+      );
+    }
+
+    /* lightning bolt from one-sheet */
+    .hero-bolt {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 32px 48px;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-kana {
+      font-family: "Zen Kaku Gothic New", serif;
+      color: var(--pink);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 12px rgba(255,93,115,0.6);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(48px, 10vw, 88px);
+      line-height: 0.95;
+      color: #fff;
+      letter-spacing: -0.01em;
+      text-shadow: 0 0 28px rgba(127,216,255,0.45), 0 2px 0 #05060d;
+    }
+
+    .hero-song {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(22px, 4vw, 36px);
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 18px rgba(255,226,122,0.4);
+      margin-top: 10px;
+    }
+
+    .hero-tag {
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .hero-slash {
+      width: 100px;
+      height: 2px;
+      background: var(--pink);
+      margin-top: 12px;
+    }
+
+    .hero-pack-badge {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      z-index: 3;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(5,6,13,0.7);
+      border: 1px solid var(--border-g);
+      padding: 6px 14px;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* play indicator */
+    .hero-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 64px;
+      height: 64px;
+      background: rgba(255,226,122,0.15);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-play.hidden { opacity: 0; pointer-events: none; }
+
+    .hero-play svg { margin-left: 4px; }
+
+    /* ─── MAIN CONTAINER ─── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ─── VITALS BAR ─── */
+    .vitals {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .vital {
+      background: var(--surface);
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .vital-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 8px;
+    }
+
+    .vital-value {
+      font-family: 'Space Mono', monospace;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .vital-sub {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-head {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-g);
+    }
+
+    /* ─── ARTIST BIO ─── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .bio-text {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #cfd2ff;
+    }
+
+    .bio-text + .bio-text { margin-top: 10px; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 14px;
+      font-size: 12px;
+      margin-top: 16px;
+    }
+
+    .facts dt {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .facts dd { color: var(--text); }
+
+    /* ─── RADIO ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .station-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .station-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .station-name { font-size: 12px; color: var(--text); flex: 1; line-height: 1.3; }
+
+    .station-bar-wrap {
+      flex: 0 0 72px;
+      height: 3px;
+      background: var(--surface-3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .station-bar { height: 100%; background: var(--cyan); border-radius: 2px; }
+
+    .station-count {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 20px;
+      text-align: right;
+    }
+
+    .total-spins {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      margin-top: 4px;
+      border-top: 1px solid var(--border-g);
+    }
+
+    .total-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+
+    .total-value {
+      font-family: 'Space Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--pink);
+      color: #fff;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ─── CAMELOT ─── */
+    .camelot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .camelot-key {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .camelot-key.active {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .camelot-key.active .ck-code { color: #05060d; }
+    .camelot-key.active .ck-name { color: rgba(5,6,13,0.6); }
+
+    .ck-code {
+      font-family: 'Space Mono', monospace;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .ck-name { font-size: 9px; color: var(--muted); margin-top: 3px; }
+
+    /* ─── CATALOG ─── */
+    .card-full {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .track-list {
+      list-style: none;
+      counter-reset: t;
+      columns: 2;
+      column-gap: 24px;
+    }
+
+    .track-list li {
+      counter-increment: t;
+      font-size: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text);
+      display: flex;
+      gap: 10px;
+      break-inside: avoid;
+    }
+
+    .track-list li::before {
+      content: counter(t, decimal-leading-zero);
+      color: var(--cyan);
+      font-weight: 700;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      min-width: 20px;
+      padding-top: 1px;
+    }
+
+    .track-list li.highlight { color: var(--gold); }
+
+    /* ─── AUDIO FILES ─── */
+    .file-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .file-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--surface-2);
+      border-radius: 8px;
+    }
+
+    .file-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .file-tag {
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      background: var(--surface-3);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* ─── PROMO COPY ─── */
+    .copy-block {
+      background: var(--surface-2);
+      border-left: 3px solid var(--cyan);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+    }
+
+    .copy-platform {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+
+    .copy-text { font-size: 13px; line-height: 1.6; color: var(--text); }
+
+    /* ─── LINKS ─── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .link-item { }
+
+    .link-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 4px;
+    }
+
+    .link-val {
+      font-size: 11px;
+      color: var(--text);
+      word-break: break-all;
+      line-height: 1.4;
+    }
+
+    /* ─── COVER ART SPEC ─── */
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .spec-item label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+
+    .spec-item p { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+    .swatch-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+
+    .swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+
+    .swatch span {
+      position: absolute;
+      bottom: -17px;
+      left: 0;
+      font-size: 7px;
+      color: var(--dim);
+      white-space: nowrap;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-g);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo { height: 36px; width: auto; opacity: 0.85; }
+
+    .footer-right { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); text-align: right; line-height: 1.6; }
+
+    /* ─── PLAYER ─── */
+    .player-card {
+      background: var(--surface);
+      border: 1px solid var(--border-g);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .player-left { min-width: 0; }
+
+    .player-eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 6px;
+    }
+
+    .player-title {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .player-artist {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .play-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .play-btn:hover { background: #ffeea0; transform: scale(1.05); }
+    .play-btn:active { transform: scale(0.97); }
+
+    .play-btn svg { color: #05060d; }
+
+    .player-timeline { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+    .progress-wrap {
+      position: relative;
+      height: 4px;
+      background: var(--surface-3);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--cyan);
+      border-radius: 2px;
+      width: 0%;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    .progress-wrap:hover .progress-fill { background: #b0ecff; }
+
+    .player-times {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--dim);
+    }
+
+    /* download card */
+    .download-card {
+      background: linear-gradient(135deg, rgba(255,226,122,0.08) 0%, rgba(127,216,255,0.05) 100%);
+      border: 1px solid var(--border-g);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .download-info {}
+
+    .download-title {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .download-meta {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .download-meta span { color: var(--cyan); font-weight: 700; }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: #05060d;
+      text-decoration: none;
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border-radius: 999px;
+      box-shadow: 0 0 20px rgba(255,226,122,0.25);
+      transition: background 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .download-btn:hover {
+      background: #ffeea0;
+      box-shadow: 0 0 28px rgba(255,226,122,0.4);
+    }
+
+    /* ─── PITCH FACTS ─── */
+    .pitch-artist {
+      margin-bottom: 20px;
+      padding: 36px 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .pitch-name {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(44px, 8vw, 80px);
+      line-height: 0.95;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .pitch-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+
+    .pitch-tag {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(13px, 2vw, 17px);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pitch-tag.loc  { color: var(--cyan); }
+    .pitch-tag.genre { color: var(--muted); }
+    .pitch-tag.sep  { color: var(--dim); }
+
+    .pitch-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .tiktok-card {
+      background: var(--surface);
+      border: 1px solid var(--border-g);
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiktok-card::before {
+      content: "TikTok";
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .tiktok-handle {
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      color: var(--cyan);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .tiktok-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .tiktok-stat-num {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(38px, 6vw, 60px);
+      line-height: 0.9;
+      color: var(--gold);
+    }
+
+    .tiktok-stat-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 6px;
+    }
+
+    .single-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .single-card::before {
+      content: "Single";
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    .single-title {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .single-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .single-stat-num {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(38px, 6vw, 56px);
+      line-height: 0.9;
+      color: var(--pink);
+    }
+
+    .single-stat-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 6px;
+    }
+
+    .stations-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+
+    .stations-label {
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 20px;
+    }
+
+    .station-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .station-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+
+    .station-item:last-child { border-bottom: none; }
+
+    .station-item-name {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: #fff;
+      line-height: 1;
+    }
+
+    .station-item-sub {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .station-item-spins {
+      font-family: "Dela Gothic One", sans-serif;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--cyan);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .pitch-two { grid-template-columns: 1fr; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .player-card { grid-template-columns: 1fr; }
+      .player-card { padding: 20px 18px; }
+      .download-card { flex-direction: column; align-items: flex-start; }
+      .vitals { grid-template-columns: repeat(2, 1fr); }
+      .two-col, .bio-grid, .spec-grid { grid-template-columns: 1fr; }
+      .links-grid { grid-template-columns: 1fr 1fr; }
+      .track-list { columns: 1; }
+      .hero-content { padding: 0 18px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO VIDEO ═══ -->
+  <section class="hero">
+    <video class="hero-bg" id="heroVideo"
+      src="assets/performance.mp4"
+      autoplay muted playsinline loop
+      poster="assets/octavia-hero.jpg">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <!-- Lightning bolt from one-sheet -->
+    <svg class="hero-bolt" viewBox="0 0 900 800" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="#7fd8ff" stroke-linecap="round" stroke-linejoin="round">
+        <polyline stroke-width="2.2" points="750,0 728,80 750,105 710,195 736,225 690,320"/>
+        <polyline stroke-width="1.2" points="736,225 780,270 772,320"/>
+        <polyline stroke-width="1.6" points="130,0 152,60 128,87 158,156"/>
+        <polyline stroke-width="0.8" points="400,0 418,45 405,60 422,95"/>
+      </g>
+    </svg>
+
+    <div class="hero-pack-badge">DJ Pack · 2026</div>
+
+    <!-- tap-to-unmute on mobile -->
+    <div class="hero-play hidden" id="heroPlay" role="button" aria-label="Unmute video">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffe27a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-label">Artist One Sheet · DJ Pack</div>
+      <div class="hero-kana">オクタヴィア・ザ・グレート</div>
+      <div class="hero-title">OCTAVIA<br>THE GREAT</div>
+      <div class="hero-song">"No Interference"</div>
+      <div class="hero-tag">Authenticity is rare</div>
+      <div class="hero-slash"></div>
+    </div>
+  </section>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <div class="container">
+
+    <!-- Vitals -->
+    <div class="vitals">
+      <div class="vital">
+        <div class="vital-label">BPM</div>
+        <div class="vital-value">133.4</div>
+        <div class="vital-sub">Tempo</div>
+      </div>
+      <div class="vital">
+        <div class="vital-label">Camelot Key</div>
+        <div class="vital-value">1A</div>
+        <div class="vital-sub">Ab Minor</div>
+      </div>
+      <div class="vital">
+        <div class="vital-label">Radio Spins</div>
+        <div class="vital-value">22</div>
+        <div class="vital-sub">Sep–Oct 2026</div>
+      </div>
+      <div class="vital">
+        <div class="vital-label">Stations</div>
+        <div class="vital-value">5</div>
+        <div class="vital-sub">Active Markets</div>
+      </div>
+    </div>
+
+    <!-- Player + Download -->
+    <div class="player-card">
+      <div class="player-left">
+        <div class="player-eyebrow">Preview · Clean Version</div>
+        <div class="player-title">No Interference</div>
+        <div class="player-artist">Octavia The Great</div>
+        <div class="player-controls">
+          <button class="play-btn" id="playBtn" aria-label="Play">
+            <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <div class="player-timeline">
+            <div class="progress-wrap" id="progressWrap">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="player-times">
+              <span id="timeCurrent">0:00</span>
+              <span id="timeDuration">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--dim);text-align:right;line-height:1.8">
+        <div style="color:var(--cyan);font-weight:700;letter-spacing:0.1em;font-size:9px;text-transform:uppercase;margin-bottom:6px">Pack Includes</div>
+        <div>Clean</div>
+        <div>Dirty</div>
+        <div>Intro Mix (Clean)</div>
+        <div>Intro Mix (Dirty)</div>
+      </div>
+      <audio id="audioPlayer" preload="metadata"
+        src="audio/Octavia the Great - No Interference (Clean).mp3">
+      </audio>
+    </div>
+
+    <!-- Download -->
+    <div class="download-card">
+      <div class="download-info">
+        <div class="download-title">No Interference — DJ Pack</div>
+        <div class="download-meta">
+          4 files · <span>13 MB ZIP</span> · Clean · Dirty · Intro Mix (Clean) · Intro Mix (Dirty)<br>
+          133.4 BPM · Key 1A · Octavia The Great
+        </div>
+      </div>
+      <a class="download-btn" href="assets/no-interference-dj-pack.zip" download="Octavia the Great - No Interference DJ Pack.zip">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Pack
+      </a>
+    </div>
+
+    <!-- Pitch Facts -->
+    <div class="pitch-artist">
+      <div class="pitch-name">OCTAVIA<br>THE GREAT</div>
+      <div class="pitch-tags">
+        <span class="pitch-tag loc">Hampton Roads, VA</span>
+        <span class="pitch-tag sep">·</span>
+        <span class="pitch-tag genre">Healing Rap</span>
+        <span class="pitch-tag sep">·</span>
+        <span class="pitch-tag genre">Neo Soul</span>
+        <span class="pitch-tag sep">·</span>
+        <span class="pitch-tag genre">Spiritual Hip-Hop</span>
+        <span class="pitch-tag sep">·</span>
+        <span class="pitch-tag genre">12 Tracks</span>
+        <span class="pitch-tag sep">·</span>
+        <span class="pitch-tag genre">New EP in Progress</span>
+      </div>
+    </div>
+
+    <div class="pitch-two">
+      <div class="tiktok-card">
+        <div class="tiktok-handle">@octaviathegreat888</div>
+        <div class="tiktok-stats">
+          <div>
+            <div class="tiktok-stat-num">34.2K</div>
+            <div class="tiktok-stat-label">Followers</div>
+          </div>
+          <div>
+            <div class="tiktok-stat-num">569.8K</div>
+            <div class="tiktok-stat-label">Likes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="single-card">
+        <div class="single-title">No Interference</div>
+        <div class="single-stats">
+          <div>
+            <div class="single-stat-num">22</div>
+            <div class="single-stat-label">Radio Spins</div>
+          </div>
+          <div>
+            <div class="single-stat-num">133.4</div>
+            <div class="single-stat-label">BPM · Key 1A</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stations-card">
+      <div class="stations-label">Added By</div>
+      <div class="station-items">
+        <div class="station-item">
+          <div>
+            <div class="station-item-name">Radio K / KUOM 770 AM</div>
+            <div class="station-item-sub">Real College Radio · Minneapolis</div>
+          </div>
+          <div class="station-item-spins">9</div>
+        </div>
+        <div class="station-item">
+          <div>
+            <div class="station-item-name">K-100 Radio</div>
+            <div class="station-item-sub">Commercial</div>
+          </div>
+          <div class="station-item-spins">7</div>
+        </div>
+        <div class="station-item">
+          <div>
+            <div class="station-item-name">KWDC 93.5 FM</div>
+            <div class="station-item-sub">Delta College Radio</div>
+          </div>
+          <div class="station-item-spins">4</div>
+        </div>
+        <div class="station-item">
+          <div>
+            <div class="station-item-name">KRBX 89.9 FM</div>
+            <div class="station-item-sub">Boise Community Radio</div>
+          </div>
+          <div class="station-item-spins">1</div>
+        </div>
+        <div class="station-item">
+          <div>
+            <div class="station-item-name">Radio Boise</div>
+            <div class="station-item-sub">Community Radio</div>
+          </div>
+          <div class="station-item-spins">1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <div class="card-full">
+      <div class="section-head">Audio File Structure — No Interference</div>
+      <div class="file-list">
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_CLEAN.mp3</span>
+          <span class="file-tag">Clean</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_DIRTY.mp3</span>
+          <span class="file-tag">Explicit</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_INTROMIX_CLEAN.mp3</span>
+          <span class="file-tag">Intro</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_INTROMIX_DIRTY.mp3</span>
+          <span class="file-tag">Intro Dirty</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_OUTROMIX_CLEAN.mp3</span>
+          <span class="file-tag">Outro</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_OUTROMIX_DIRTY.mp3</span>
+          <span class="file-tag">Outro Dirty</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_QUICKHITTER_CLEAN.mp3</span>
+          <span class="file-tag">Quick Hit</span>
+        </div>
+        <div class="file-row">
+          <span style="font-size:13px;opacity:0.6">♫</span>
+          <span class="file-name">OctaviaTheGreat_NoInterference_133bpm_1A_QUICKHITTER_DIRTY.mp3</span>
+          <span class="file-tag">Quick Hit Dirty</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo copy -->
+    <div class="card-full">
+      <div class="section-head">Promo Copy</div>
+      <div class="copy-block">
+        <div class="copy-platform">DJ Drop / Station ID</div>
+        <div class="copy-text">"You're listening to 'No Interference' by Octavia The Great — spinning on college and community radio across the country. No noise. Just frequency."</div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-platform">Social / IG Caption</div>
+        <div class="copy-text">No Interference is hitting radio stations from Minneapolis to Boise. 22 spins and counting. If you know, you know. 🔊<br>
+        <span style="color:var(--gold)">#OctaviaTheGreat #NoInterference #CollegeRadio #NewMusic</span></div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-platform">DJ / Programmer Pitch</div>
+        <div class="copy-text">"No Interference" by Octavia The Great — 133 BPM, 1A (Ab Minor). Spinning at Radio K (KUOM Minneapolis), K-100, KWDC 93.5, and Boise Community Radio. Full DJ pack: clean, dirty, intro mix, outro mix, quick hitter. Ready to rotate.</div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="card-full">
+      <div class="section-head">Links & Socials</div>
+      <div class="links-grid">
+        <div class="link-item">
+          <span class="link-label">Music</span>
+          <span class="link-val">airwavesent.com/octaviathegreat</span>
+        </div>
+        <div class="link-item">
+          <span class="link-label">Instagram</span>
+          <span class="link-val">@octaviathegreat888</span>
+        </div>
+        <div class="link-item">
+          <span class="link-label">TikTok</span>
+          <span class="link-val">@octaviathegreat888</span>
+        </div>
+        <div class="link-item">
+          <span class="link-label">YouTube</span>
+          <span class="link-val">@octaviathegreat888</span>
+        </div>
+        <div class="link-item">
+          <span class="link-label">Facebook</span>
+          <span class="link-val">facebook.com/onlythegreats1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cover art spec -->
+    <div class="card-full">
+      <div class="section-head">Cover Art Spec</div>
+      <div class="spec-grid">
+        <div class="spec-item">
+          <label>Dimensions</label>
+          <p>3000 × 3000 px · RGB<br>72 dpi digital · 300 dpi print</p>
+        </div>
+        <div class="spec-item">
+          <label>Concept Direction</label>
+          <p>Signal / frequency interference. Think static, radio waves, disrupted broadcast. Artist centered, text minimal.</p>
+        </div>
+        <div class="spec-item">
+          <label>Typography</label>
+          <p>Artist name prominent. Song title secondary. Max two type elements. Use Dela Gothic One to match artist brand.</p>
+        </div>
+        <div class="spec-item">
+          <label>Color Palette</label>
+          <p>One-sheet brand colors:</p>
+          <div class="swatch-row" style="margin-bottom:22px">
+            <div class="swatch" style="background:#ffe27a"><span>#ffe27a</span></div>
+            <div class="swatch" style="background:#05060d;border-color:#444"><span>#05060d</span></div>
+            <div class="swatch" style="background:#7fd8ff"><span>#7fd8ff</span></div>
+            <div class="swatch" style="background:#ff5d73"><span>#ff5d73</span></div>
+          </div>
+        </div>
+        <div class="spec-item" style="margin-top:8px">
+          <label>File Deliverables</label>
+          <p>cover_3000x3000.png (master)<br>cover_1400x1400.jpg (streaming)<br>cover_500x500.jpg (DJ pack thumb)</p>
+        </div>
+        <div class="spec-item" style="margin-top:8px">
+          <label>Platform Safe Zones</label>
+          <p>Keep key elements 150px from all edges. Apple Music crops to circle on some views — test centered composition.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <img class="footer-logo" src="assets/idu-house-logo.png" alt="IDU House">
+      <div class="footer-right">
+        Octavia The Great · "No Interference" · DJ Pack · 2026<br>
+        Managed by IDU House · iduhouse.com · For DJ &amp; Radio Use Only
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <script>
+    // Hero video
+    (function () {
+      const v = document.getElementById('heroVideo');
+      const btn = document.getElementById('heroPlay');
+      v.addEventListener('play', () => btn.classList.add('hidden'));
+      v.addEventListener('pause', () => btn.classList.remove('hidden'));
+      btn.addEventListener('click', () => { v.muted = false; v.play(); btn.classList.add('hidden'); });
+      const p = v.play();
+      if (p !== undefined) p.catch(() => btn.classList.remove('hidden'));
+    })();
+
+    // Audio player
+    (function () {
+      const audio   = document.getElementById('audioPlayer');
+      const playBtn = document.getElementById('playBtn');
+      const playIco = document.getElementById('playIcon');
+      const fill    = document.getElementById('progressFill');
+      const wrap    = document.getElementById('progressWrap');
+      const cur     = document.getElementById('timeCurrent');
+      const dur     = document.getElementById('timeDuration');
+
+      const fmt = s => {
+        const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+        return m + ':' + String(sec).padStart(2, '0');
+      };
+
+      const PLAY_SVG  = '<polygon points="5 3 19 12 5 21 5 3"/>';
+      const PAUSE_SVG = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+      audio.addEventListener('loadedmetadata', () => { dur.textContent = fmt(audio.duration); });
+
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+        cur.textContent = fmt(audio.currentTime);
+      });
+
+      audio.addEventListener('ended', () => {
+        playIco.innerHTML = PLAY_SVG;
+        fill.style.width = '0%';
+        cur.textContent = '0:00';
+      });
+
+      playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playIco.innerHTML = PAUSE_SVG;
+        } else {
+          audio.pause();
+          playIco.innerHTML = PLAY_SVG;
+        }
+      });
+
+      wrap.addEventListener('click', e => {
+        const rect = wrap.getBoundingClientRect();
+        const pct  = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pct * audio.duration;
+      });
+    })();
+  </script>
+
+</body>
+</html>
