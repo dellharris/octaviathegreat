@@ -903,6 +903,21 @@
       .pitch-two { grid-template-columns: 1fr; }
     }
 
+    /* footer links */
+    .footer-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .footer-link {
+      font-family: "Dela Gothic One", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .footer-link:hover { color: var(--gold); }
+    .footer-link.primary { color: var(--cyan); }
+    .footer-link.primary:hover { color: #b0ecff; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
       .player-card { grid-template-columns: 1fr; }
@@ -1253,10 +1268,13 @@
 
     <!-- Footer -->
     <div class="footer">
-      <img class="footer-logo" src="assets/idu-house-logo.png" alt="IDU House">
-      <div class="footer-right">
-        Octavia The Great · "No Interference" · DJ Pack · 2026<br>
-        Managed by IDU House · iduhouse.com · For DJ &amp; Radio Use Only
+      <a href="https://iduhouse.com" target="_blank" rel="noopener">
+        <img class="footer-logo" src="assets/idu-house-logo.png" alt="IDU House">
+      </a>
+      <div class="footer-links">
+        <a class="footer-link primary" href="https://octavia.iduhouse.com/one-sheet.html" target="_blank" rel="noopener">Artist One Sheet</a>
+        <a class="footer-link" href="https://iduhouse.com" target="_blank" rel="noopener">IDU House</a>
+        <span style="font-size:9px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase">For DJ &amp; Radio Use Only</span>
       </div>
     </div>
 
