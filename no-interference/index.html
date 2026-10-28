@@ -865,7 +865,7 @@
 
     .station-item {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       padding: 14px 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -874,10 +874,37 @@
 
     .station-item:last-child { border-bottom: none; }
 
+    .station-item-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    /* Station badge / logo */
+    .s-badge {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .s-badge svg { width: 100%; height: 100%; display: block; }
+
+    /* Color variants */
+    .s-badge.gold   { background: rgba(255,226,122,0.10); border: 1px solid rgba(255,226,122,0.25); }
+    .s-badge.cyan   { background: rgba(127,216,255,0.10); border: 1px solid rgba(127,216,255,0.25); }
+    .s-badge.pink   { background: rgba(255,93,115,0.10);  border: 1px solid rgba(255,93,115,0.25);  }
+    .s-badge.muted  { background: rgba(154,160,208,0.10); border: 1px solid rgba(154,160,208,0.25); }
+
     .station-item-name {
       font-family: "Dela Gothic One", sans-serif;
       font-weight: 400;
-      font-size: clamp(16px, 2.5vw, 22px);
+      font-size: clamp(15px, 2.5vw, 20px);
       color: #fff;
       line-height: 1;
     }
@@ -1142,41 +1169,94 @@
     <div class="stations-card">
       <div class="stations-label">Added By</div>
       <div class="station-items">
+
+        <!-- Radio K / KUOM -->
         <div class="station-item">
-          <div>
-            <div class="station-item-name">Radio K / KUOM 770 AM</div>
-            <div class="station-item-sub">Real College Radio · Minneapolis</div>
+          <div class="station-item-left">
+            <div class="s-badge gold">
+              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="26" y="36" text-anchor="middle" font-family="'Dela Gothic One', sans-serif" font-size="28" fill="#ffe27a">K</text>
+                <text x="26" y="47" text-anchor="middle" font-family="'Zen Kaku Gothic New', sans-serif" font-size="8" fill="#ffe27a" letter-spacing="2" font-weight="700">RADIO</text>
+              </svg>
+            </div>
+            <div>
+              <div class="station-item-name">Radio K / KUOM 770 AM</div>
+              <div class="station-item-sub">Real College Radio · Minneapolis</div>
+            </div>
           </div>
           <div class="station-item-spins">9</div>
         </div>
+
+        <!-- K-100 -->
         <div class="station-item">
-          <div>
-            <div class="station-item-name">K-100 Radio</div>
-            <div class="station-item-sub">Commercial</div>
+          <div class="station-item-left">
+            <div class="s-badge cyan">
+              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="26" y="30" text-anchor="middle" font-family="'Dela Gothic One', sans-serif" font-size="16" fill="#7fd8ff">K</text>
+                <text x="26" y="43" text-anchor="middle" font-family="'Dela Gothic One', sans-serif" font-size="13" fill="#7fd8ff">100</text>
+              </svg>
+            </div>
+            <div>
+              <div class="station-item-name">K-100 Radio</div>
+              <div class="station-item-sub">Commercial Radio</div>
+            </div>
           </div>
           <div class="station-item-spins">7</div>
         </div>
+
+        <!-- KWDC -->
         <div class="station-item">
-          <div>
-            <div class="station-item-name">KWDC 93.5 FM</div>
-            <div class="station-item-sub">Delta College Radio</div>
+          <div class="station-item-left">
+            <div class="s-badge pink">
+              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="26" y="30" text-anchor="middle" font-family="'Dela Gothic One', sans-serif" font-size="13" fill="#ff5d73">KWDC</text>
+                <text x="26" y="43" text-anchor="middle" font-family="'Zen Kaku Gothic New', sans-serif" font-size="8" fill="#ff5d73" font-weight="700" letter-spacing="1">93.5 FM</text>
+              </svg>
+            </div>
+            <div>
+              <div class="station-item-name">KWDC 93.5 FM</div>
+              <div class="station-item-sub">Delta College Radio</div>
+            </div>
           </div>
           <div class="station-item-spins">4</div>
         </div>
+
+        <!-- KRBX -->
         <div class="station-item">
-          <div>
-            <div class="station-item-name">KRBX 89.9 FM</div>
-            <div class="station-item-sub">Boise Community Radio</div>
+          <div class="station-item-left">
+            <div class="s-badge muted">
+              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="26" y="30" text-anchor="middle" font-family="'Dela Gothic One', sans-serif" font-size="13" fill="#9aa0d0">KRBX</text>
+                <text x="26" y="43" text-anchor="middle" font-family="'Zen Kaku Gothic New', sans-serif" font-size="8" fill="#9aa0d0" font-weight="700" letter-spacing="1">89.9 FM</text>
+              </svg>
+            </div>
+            <div>
+              <div class="station-item-name">KRBX 89.9 FM</div>
+              <div class="station-item-sub">Boise Community Radio</div>
+            </div>
           </div>
           <div class="station-item-spins">1</div>
         </div>
+
+        <!-- Radio Boise -->
         <div class="station-item">
-          <div>
-            <div class="station-item-name">Radio Boise</div>
-            <div class="station-item-sub">Community Radio</div>
+          <div class="station-item-left">
+            <div class="s-badge cyan">
+              <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Radio wave arcs -->
+                <path d="M10 30 Q26 10 42 30" stroke="#7fd8ff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M15 35 Q26 20 37 35" stroke="#7fd8ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="26" cy="38" r="2.5" fill="#7fd8ff"/>
+              </svg>
+            </div>
+            <div>
+              <div class="station-item-name">Radio Boise</div>
+              <div class="station-item-sub">Community Radio</div>
+            </div>
           </div>
           <div class="station-item-spins">1</div>
         </div>
+
       </div>
     </div>
 
